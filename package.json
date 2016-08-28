@@ -4,7 +4,7 @@
   "description": "A simple tool to handle your organization's relationships",
   "main": "main.js",
   "scripts": {
-    "test": "mocha tests --recursive ./tests"
+    "test": "mocha tests --recursive --watch ./tests"
   },
   "repository": {
     "type": "git",
