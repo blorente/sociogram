@@ -136,4 +136,15 @@ describe('Sociogram Tests', function() {
 		let createdSociogram = new Sociogram(originalSociogram.toJSON());
 		expect(createdSociogram).to.deep.equal(originalSociogram);
 	});
+
+	it('A sociogram can be loaded from a .json file', function() {
+		testJSON = require('./00_simpleSociogram.json');
+		let loadedSociogram = new Sociogram(testJSON);
+		let expectedSociogram = new Sociogram({
+			name: "testSociogram",
+			date: "testDate",
+			groupCode: "testGroupCode"
+		});
+		expect(loadedSociogram).to.deep.equal(expectedSociogram);
+	});
 });
