@@ -1,3 +1,5 @@
+"use strict";
+
 class StudyVariable {
 	constructor({name = "", values = []}) {
 		this.name = name;

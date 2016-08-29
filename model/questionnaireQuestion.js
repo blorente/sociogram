@@ -1,3 +1,5 @@
+"use strict";
+
 class QuestionnaireQuestion {
 	constructor({title = "", numberOfChoices = 0}) {
 		this.title = title;

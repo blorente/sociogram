@@ -1,3 +1,5 @@
+"use strict";
+
 const chai = require('chai');
 const expect = chai.expect;
 const QuestionnaireQuestion = require('../../model/questionnaireQuestion.js');
