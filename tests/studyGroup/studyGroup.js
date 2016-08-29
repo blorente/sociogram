@@ -20,4 +20,5 @@ describe('Study Group Tests', function() {
 		const emptyStudyGroup = new StudyGroup({});
 		expect(emptyStudyGroup.getRelevantVariables().length).to.equal(0);
 	});
+	
 });
