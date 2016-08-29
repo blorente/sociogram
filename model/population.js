@@ -2,7 +2,7 @@
 
 const Individual = require('./individual.js');
 
-class StudyGroup {
+class Population {
 	constructor() {
 		this.individuals = [];
 	}
@@ -27,4 +27,4 @@ class StudyGroup {
 	}
 }
 
-module.exports = StudyGroup;
+module.exports = Population;
