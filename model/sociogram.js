@@ -1,20 +1,20 @@
 class Sociogram {
-	constructor(parameters) {
-		this.name = parameters.name;
-		this.date = parameters.date;
-		this.groupCode = parameters.groupCode;
+	constructor({name = "", date = "", groupCode = ""}) {
+		this.name = name;
+		this.date = date;
+		this.groupCode = groupCode;
 	}
 
 	getName() {
-		return this.name || "";
+		return this.name;
 	}
 
 	getDate() {
-		return this.date || "";
+		return this.date;
 	}
 
 	getGroupCode() {
-		return this.groupCode || "";
+		return this.groupCode;
 	}
 
 	getTitle() {

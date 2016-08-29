@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-const Sociogram = require('../../model/sociogram.js')
+const Sociogram = require('../../model/sociogram.js');
 
 describe('Sociogram Tests', function() {
 	it('An empty sociogram has a title', function() {
@@ -138,7 +138,7 @@ describe('Sociogram Tests', function() {
 	});
 
 	it('A sociogram can be loaded from a .json file', function() {
-		testJSON = require('./00_simpleSociogram.json');
+		const testJSON = require('./00_simpleSociogram.json');
 		const loadedSociogram = new Sociogram(testJSON);
 		const expectedSociogram = new Sociogram({
 			name: "testSociogram",
