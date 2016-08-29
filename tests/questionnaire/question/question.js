@@ -23,6 +23,6 @@ describe('Questionnaire Question Test', function() {
 		expect(arbitraryQuestion.getTitle()).to.be.a('string');
 		expect(arbitraryQuestion.getTitle()).to.equal(arbitraryQuestionParams.title);
 		expect(arbitraryQuestion.getNumChoices()).to.be.a('number');
-		expect(arbitraryQuestion.getNumChoices()).to.equal(arbitraryQuestionParams.numberOfChoices);
+		expect(arbitraryQuestion.getNumChoices()).to.equal(arbitraryQuestionParams.choices);
 	});
 });

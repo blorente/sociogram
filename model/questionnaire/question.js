@@ -1,13 +1,13 @@
 "use strict";
 
 class Question {
-	constructor({title = "", numberOfChoices = 0}) {
+	constructor({title = "", choices = 0}) {
 		this.title = title;
-		this.numberOfChoices = numberOfChoices;
+		this.choices = choices;
 	}
 
 	getNumChoices() {
-		return this.numberOfChoices;
+		return this.choices;
 	}
 
 	getTitle() {
