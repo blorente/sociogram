@@ -31,6 +31,10 @@ class Population {
 	addVariable(name, values) {
 		this.variables.push(new StudyVariable(name, values));
 	}
+
+	getVariableList() {
+		return this.variables;
+	}
 }
 
 module.exports = Population;

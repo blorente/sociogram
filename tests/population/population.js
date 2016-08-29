@@ -94,4 +94,22 @@ describe('Population Tests', function() {
 			expect(oneVarPopulation).to.be.ok;
 		});
 	});
+
+	describe('getVariableList', function() {
+		const arbitraryVariable = require('./population.mock.json').arbitraryVariable;
+
+		it('Returns an array', function() {
+			const emptyPopulation = new Population({});
+			expect(emptyPopulation.getVariableList()).is.an('array');
+		});
+
+		it('Every element of the list has a name and an array of values', function() {
+			const filledPopulation = new Population({});
+			filledPopulation.addVariable(arbitraryVariable.name, arbitraryVariable.values);
+			filledPopulation.getVariableList().forEach(function(element) {
+				expect(element).to.include.keys('name', 'values');
+				expect(element.values).to.be.an('array');
+			});
+		});
+	});
 });

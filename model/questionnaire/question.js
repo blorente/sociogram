@@ -1,6 +1,6 @@
 "use strict";
 
-class QuestionnaireQuestion {
+class Question {
 	constructor({title = "", numberOfChoices = 0}) {
 		this.title = title;
 		this.numberOfChoices = numberOfChoices;
@@ -15,4 +15,4 @@ class QuestionnaireQuestion {
 	}
 }
 
-module.exports = QuestionnaireQuestion;
+module.exports = Question;
