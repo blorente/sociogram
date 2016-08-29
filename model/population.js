@@ -1,10 +1,12 @@
 "use strict";
 
 const Individual = require('./individual.js');
+const StudyVariable = require('./studyVariable.js');
 
 class Population {
 	constructor() {
 		this.individuals = [];
+		this.variables = [];
 	}
 
 	getPopulationSize() {
@@ -24,6 +26,10 @@ class Population {
 
 	getVariableCount() {
 		return 0;
+	}
+
+	addVariable(name, values) {
+		this.variables.push(new StudyVariable(name, values));
 	}
 }
 

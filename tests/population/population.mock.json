@@ -1,3 +1,7 @@
 {
-	"arbitraryNames": ["Joseph Main", "Jake Weary", "Ada Lovelace"]
+	"arbitraryNames": ["Joseph Main", "Jake Weary", "Ada Lovelace"],
+	"arbitraryVariable": {
+		"name": "Gender",
+		"values": ["M", "F"]
+	}
 }

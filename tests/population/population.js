@@ -71,12 +71,27 @@ describe('Population Tests', function() {
 	});
 
 	describe('getVariableCount', function() {
+		const arbitraryVariable = require('./population.mock.json').arbitraryVariable;
+
 		it('Returns 0 if there were no variables', function() {
 			const emptyPopulation = new Population({});
 			expect(emptyPopulation.getVariableCount()).to.equal(0);
 		});
+
+		it('Returns the number of times addVariable was called', function() {
+			const filledPopulation = new Population({});
+			filledPopulation.addVariable(arbitraryVariable.name, arbitraryVariable.values);
+			expect(filledPopulation.getVariableCount()).to.equal(0);
+		});
 	});
 
 	describe('addVariable', function() {
+		const arbitraryVariable = require('./population.mock.json').arbitraryVariable;
+
+		it('Accepts a name and a possible value array', function() {
+			const oneVarPopulation = new Population({});
+			oneVarPopulation.addVariable(arbitraryVariable.name, arbitraryVariable.values);
+			expect(oneVarPopulation).to.be.ok;
+		});
 	});
 });

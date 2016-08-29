@@ -1,5 +1,7 @@
 "use strict";
 
+const QuestionnaireQuestion = require('./questionnaireQuestion.js');
+
 class Questionnaire {
 	constructor({}) {
 		this.questions = [];
@@ -9,8 +11,8 @@ class Questionnaire {
 		return this.questions.length;
 	}
 
-	addQuestion(question) {
-		this.questions.push(question);
+	addQuestion(title, answerCount) {
+		this.questions.push(new QuestionnaireQuestion(title, answerCount));
 	}
 }
 
