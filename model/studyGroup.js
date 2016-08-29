@@ -1,13 +1,29 @@
 "use strict";
 
-class StudyGroup {
+const Individual = require('./individual.js');
 
-	getNumParticipants() {
-		return 0;
+class StudyGroup {
+	constructor() {
+		this.individuals = [];
 	}
 
-	getRelevantVariables() {
-		return [];
+	getPopulationSize() {
+		return this.individuals.length;
+	}
+
+	addIndividual(newIndividualName) {
+		this.individuals.push(new Individual({
+			name: newIndividualName,
+			id: this.individuals.length
+		}));
+	}
+
+	getOrderedPopulation() {
+		return this.individuals;
+	}
+
+	getVariableCount() {
+		return 0;
 	}
 }
 
