@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "check-coverage": "istanbul check-coverage --statements 100 --lines 100 --functions 100 --branches 100",
-	"report-coverage": "cat ./coverage/lcov.info | codecov",
+	"report-coverage": "bash <(curl -s https://codecov.io/bash)",
     "test": "mocha tests --recursive --watch ./tests",
     "test:single": "istanbul cover -x tests/ _mocha -- -R spec --recursive ./tests"
   },
