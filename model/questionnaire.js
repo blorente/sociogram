@@ -1,9 +1,6 @@
 "use strict";
 
 class Questionnaire {
-	constructor({}) {
-
-	}
 
 	getNumQuestions() {
 		return 0;
