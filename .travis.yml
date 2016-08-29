@@ -7,3 +7,4 @@ node_js:
 
 script:
   - npm run test:single
+  - npm run check-coverage

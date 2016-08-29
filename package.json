@@ -4,6 +4,7 @@
   "description": "A simple tool to handle your organization's relationships",
   "main": "main.js",
   "scripts": {
+    "check-coverage": "istanbul check-coverage --statements 100 --lines 100 --functions 100 --branches 100",
     "test": "mocha tests --recursive --watch ./tests",
     "test:single": "istanbul cover -x tests/ _mocha -- -R spec --recursive ./tests"
   },
@@ -26,7 +27,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run test:single"
+      "pre-commit": "npm run test:single && npm run check-coverage"
     }
   }
 }
