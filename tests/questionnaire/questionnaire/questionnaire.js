@@ -35,7 +35,7 @@ describe('Questionnaire Tests', function() {
 			expect(emptyQuestionnaire.getNumQuestions()).to.equal(originalNumber + 1);
 		});
 
-		it('Accepts a name and optionally the number of questions', function() {
+		it('Accepts a name and optionally the number of answers', function() {
 			const twoQuestionQuestionnaire = new Questionnaire({});
 			twoQuestionQuestionnaire.addQuestion(questionNames[0]);
 			expect(twoQuestionQuestionnaire.getNumQuestions()).to.equal(1);
