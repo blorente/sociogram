@@ -18,13 +18,13 @@ describe('Study Variable Tests', function() {
 	});
 
 	it('A variable accepts a name in the constructor', function() {
-		const namedVariableParams = require('./00_onlyNamedVariable.json');
+		const namedVariableParams = require('./studyVariable.mock.json').namedVariable;
 		const namedVariable = new StudyVariable(namedVariableParams);
 		expect(namedVariable.getName()).to.equal(namedVariableParams.name);
 	});
 
 	it('Possible values can be added in the constructor', function() {
-		const twoOptionParams = require('./01_twoOptionParams.json');
+		const twoOptionParams = require('./studyVariable.mock.json').twoOptionVariable;
 		const twoOptionVariable = new StudyVariable(twoOptionParams);
 		expect(twoOptionVariable.getName()).to.equal(twoOptionParams.name);
 		expect(twoOptionVariable.getPossibleValueCount()).to.equal(twoOptionParams.values.length);
@@ -32,7 +32,7 @@ describe('Study Variable Tests', function() {
 	});
 
 	it('Possible values can be added after construction', function() {
-		const twoOptionParams = require('./01_twoOptionParams.json');
+		const twoOptionParams = require('./studyVariable.mock.json').twoOptionVariable;
 		const moreOptionVariable = new StudyVariable(twoOptionParams);
 		expect(moreOptionVariable.getName()).to.equal(twoOptionParams.name);
 		expect(moreOptionVariable.getPossibleValueCount()).to.equal(twoOptionParams.values.length);

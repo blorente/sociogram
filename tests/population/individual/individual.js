@@ -18,7 +18,7 @@ describe('Individual Tests', function() {
 		});
 
 		it('Can parse a parameter object with name and id', function() {
-			const arbitraryParams = require('./00_arbitraryIndividual.json');
+			const arbitraryParams = require('./individual.mock.json');
 			const constructedIndividual = new Individual(arbitraryParams);
 			expect(constructedIndividual.getName()).to.not.equal("");
 			expect(constructedIndividual.getID()).to.not.equal(-1);
@@ -34,7 +34,7 @@ describe('Individual Tests', function() {
 		});
 
 		it('If the name was set in the constructor, it returns that', function() {
-			const arbitraryParams = require('./00_arbitraryIndividual.json');
+			const arbitraryParams = require('./individual.mock.json');
 			const constructedIndividual = new Individual(arbitraryParams);
 			expect(constructedIndividual.getName()).to.equal(arbitraryParams.name);
 		});
@@ -42,14 +42,14 @@ describe('Individual Tests', function() {
 
 	describe('setID', function() {
 		it('Changes the output of subsequent calls to getID', function() {
-			const arbitraryParams = require('./00_arbitraryIndividual.json');
+			const arbitraryParams = require('./individual.mock.json');
 			const constructedIndividual = new Individual(arbitraryParams);
 			constructedIndividual.setID(4);
 			expect(constructedIndividual.getID()).to.equal(4);
 		});
 
 		it('Has no effect if a negative number is passed', function() {
-			const arbitraryParams = require('./00_arbitraryIndividual.json');
+			const arbitraryParams = require('./individual.mock.json');
 			const constructedIndividual = new Individual(arbitraryParams);
 			constructedIndividual.setID(-3);
 			expect(constructedIndividual.getID()).to.equal(arbitraryParams.id);
@@ -63,7 +63,7 @@ describe('Individual Tests', function() {
 		});
 
 		it('Returns the last value set via constructor or setID()', function() {
-			const arbitraryParams = require('./00_arbitraryIndividual.json');
+			const arbitraryParams = require('./individual.mock.json');
 			const constructedIndividual = new Individual(arbitraryParams);
 			expect(constructedIndividual.getID()).to.equal(arbitraryParams.id);
 			constructedIndividual.setID(arbitraryParams.id + 1);

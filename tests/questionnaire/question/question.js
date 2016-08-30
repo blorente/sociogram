@@ -18,7 +18,7 @@ describe('Questionnaire Question Test', function() {
 	});
 
 	it('A question accepts a number of choices and a title in the constructor', function() {
-		const arbitraryQuestionParams = require("./00_arbitraryQuestion.json");
+		const arbitraryQuestionParams = require("./question.mock.json");
 		const arbitraryQuestion = new Question(arbitraryQuestionParams);
 		expect(arbitraryQuestion.getTitle()).to.be.a('string');
 		expect(arbitraryQuestion.getTitle()).to.equal(arbitraryQuestionParams.title);

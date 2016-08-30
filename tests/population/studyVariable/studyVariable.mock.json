@@ -1,0 +1,12 @@
+{
+	"namedVariable": {
+		"name": "Gender"
+	},
+	"twoOptionVariable": {
+		"name": "Gender",
+		"values": [
+			"M",
+			"F"
+		]
+	}
+}

@@ -140,7 +140,7 @@ describe('Sociogram Tests', function() {
 	});
 
 	it('A sociogram can be loaded from a .json file', function() {
-		const testJSON = require('./00_simpleSociogram.json');
+		const testJSON = require('./sociogram.mock.json').headerJSON;
 		const loadedSociogram = new Sociogram(testJSON);
 		const expectedSociogram = new Sociogram({
 			name: "testSociogram",
