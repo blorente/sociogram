@@ -5,53 +5,93 @@ const expect = chai.expect;
 const Sociogram = require('../../model/sociogram.js');
 
 describe('Sociogram Tests', function() {
-	it('An empty sociogram has a title', function() {
-		const emptySociogram = new Sociogram({});
-		expect(emptySociogram.getName()).to.be.a('string');
-		expect(emptySociogram.getName()).to.equal("");
-	});
 
-	it('A Sociogram can be initialized with a name', function() {
-		const arbitrarySociogramName = "New Sociogram";
-		const sociogramWithATitle = new Sociogram({name: arbitrarySociogramName});
-		expect(sociogramWithATitle.getName()).to.equal(arbitrarySociogramName);
-	});
-
-	it('A Sociogram can be initialized with a date string', function() {
-		const arbitraryDateString = "2016-05-21";
-		const sociogramWithADate = new Sociogram({date: arbitraryDateString});
-		expect(sociogramWithADate.getDate()).to.be.a('string');
-		expect(sociogramWithADate.getDate()).to.equal(arbitraryDateString);
-	});
-
-	it('A sociogram can be initialized with a group name string', function() {
-		const arbitraryGroupCode = "3ºA";
-		const sociogramWithAGroupCode = new Sociogram({groupCode: arbitraryGroupCode});
-		expect(sociogramWithAGroupCode.getGroupCode()).to.be.a('string');
-		expect(sociogramWithAGroupCode.getGroupCode()).to.equal(arbitraryGroupCode);
-	});
-
-	it('The order of the arguments does not affect the name, date or group', function() {
-		const arbitraryName = "New Sociogram";
-		const arbitraryDateString = "2016-05-21";
-		const arbitraryGroupCode = "3ºA";
-		const sociogramWithNameDateGroup = new Sociogram({
-			name: arbitraryName,
-			date: arbitraryDateString,
-			groupCode: arbitraryGroupCode
+	describe('constructor', function() {
+		it('An empty sociogram has a title', function() {
+			const emptySociogram = new Sociogram({});
+			expect(emptySociogram.getName()).to.be.a('string');
+			expect(emptySociogram.getName()).to.equal("");
 		});
-		expect(sociogramWithNameDateGroup.getName()).to.equal(arbitraryName);
-		expect(sociogramWithNameDateGroup.getDate()).to.equal(arbitraryDateString);
-		expect(sociogramWithNameDateGroup.getGroupCode()).to.equal(arbitraryGroupCode);
 
-		const sociogramWithGroupDateName = new Sociogram({
-			groupCode: arbitraryGroupCode,
-			date: arbitraryDateString,
-			name: arbitraryName
+		it('A Sociogram can be initialized with a name', function() {
+			const arbitrarySociogramName = "New Sociogram";
+			const sociogramWithATitle = new Sociogram({name: arbitrarySociogramName});
+			expect(sociogramWithATitle.getName()).to.equal(arbitrarySociogramName);
 		});
-		expect(sociogramWithGroupDateName.getName()).to.equal(arbitraryName);
-		expect(sociogramWithGroupDateName.getDate()).to.equal(arbitraryDateString);
-		expect(sociogramWithGroupDateName.getGroupCode()).to.equal(arbitraryGroupCode);
+
+		it('A Sociogram can be initialized with a date string', function() {
+			const arbitraryDateString = "2016-05-21";
+			const sociogramWithADate = new Sociogram({date: arbitraryDateString});
+			expect(sociogramWithADate.getDate()).to.be.a('string');
+			expect(sociogramWithADate.getDate()).to.equal(arbitraryDateString);
+		});
+
+		it('A sociogram can be initialized with a group name string', function() {
+			const arbitraryGroupCode = "3ºA";
+			const sociogramWithAGroupCode = new Sociogram({groupCode: arbitraryGroupCode});
+			expect(sociogramWithAGroupCode.getGroupCode()).to.be.a('string');
+			expect(sociogramWithAGroupCode.getGroupCode()).to.equal(arbitraryGroupCode);
+		});
+
+		it('The order of the arguments does not affect the name, date or group', function() {
+			const arbitraryName = "New Sociogram";
+			const arbitraryDateString = "2016-05-21";
+			const arbitraryGroupCode = "3ºA";
+			const sociogramWithNameDateGroup = new Sociogram({
+				name: arbitraryName,
+				date: arbitraryDateString,
+				groupCode: arbitraryGroupCode
+			});
+			expect(sociogramWithNameDateGroup.getName()).to.equal(arbitraryName);
+			expect(sociogramWithNameDateGroup.getDate()).to.equal(arbitraryDateString);
+			expect(sociogramWithNameDateGroup.getGroupCode()).to.equal(arbitraryGroupCode);
+
+			const sociogramWithGroupDateName = new Sociogram({
+				groupCode: arbitraryGroupCode,
+				date: arbitraryDateString,
+				name: arbitraryName
+			});
+			expect(sociogramWithGroupDateName.getName()).to.equal(arbitraryName);
+			expect(sociogramWithGroupDateName.getDate()).to.equal(arbitraryDateString);
+			expect(sociogramWithGroupDateName.getGroupCode()).to.equal(arbitraryGroupCode);
+		});
+
+		it('A sociogram can be loaded from a .json file with only header', function() {
+			const testJSON = require('./sociogram.mock.json').headerJSON;
+			const loadedSociogram = new Sociogram(testJSON);
+			const expectedSociogram = new Sociogram({
+				name: "testSociogram",
+				date: "testDate",
+				groupCode: "testGroupCode"
+			});
+			expect(loadedSociogram).to.deep.equal(expectedSociogram);
+		});
+
+		it('A sociogram can be initialized from another sociogram\'s toJSON output', function() {
+			const arbitraryName = "New Sociogram";
+			const arbitraryDateString = "2016-05-21";
+			const arbitraryGroupCode = "3ºA";
+			const originalSociogram = new Sociogram({
+				name: arbitraryName,
+				date: arbitraryDateString,
+				groupCode: arbitraryGroupCode
+			});
+			const createdSociogram = new Sociogram(originalSociogram.toJSON());
+			expect(createdSociogram).to.deep.equal(originalSociogram);
+		});
+
+		it('Accepts a parameter "population"', function() {
+			const populationJSON = require('./sociogram.mock.json').populationJSON;
+			const populatedSociogram = new Sociogram(populationJSON);
+			expect(populatedSociogram.population.getVariableCount()).to.equal(populationJSON.template.population.variables.length);
+			expect(populatedSociogram.population.getPopulationSize()).to.equal(populationJSON.template.population.individuals.length);
+		});
+
+		it('Accepts a parameter "questionnaire"', function() {
+			const questionnaireJSON = require('./sociogram.mock.json').questionnaireJSON;
+			const questionnaireSociogram = new Sociogram(questionnaireJSON);
+			expect(questionnaireSociogram.questionnaire.getNumQuestions()).to.equal(questionnaireJSON.template.questionnaire.questions.length);
+		});
 	});
 
 	it('The sociogram can have a title in the format "<name>-<group>-<date>"', function() {
@@ -125,29 +165,4 @@ describe('Sociogram Tests', function() {
 		}
 		expect(arbitrarySociogram.toJSON()).to.deep.equal(expectedJSON);
 	});
-
-	it('A sociogram can be initialized from another sociogram\'s toJSON output', function() {
-		const arbitraryName = "New Sociogram";
-		const arbitraryDateString = "2016-05-21";
-		const arbitraryGroupCode = "3ºA";
-		const originalSociogram = new Sociogram({
-			name: arbitraryName,
-			date: arbitraryDateString,
-			groupCode: arbitraryGroupCode
-		});
-		const createdSociogram = new Sociogram(originalSociogram.toJSON());
-		expect(createdSociogram).to.deep.equal(originalSociogram);
-	});
-
-	it('A sociogram can be loaded from a .json file', function() {
-		const testJSON = require('./sociogram.mock.json').headerJSON;
-		const loadedSociogram = new Sociogram(testJSON);
-		const expectedSociogram = new Sociogram({
-			name: "testSociogram",
-			date: "testDate",
-			groupCode: "testGroupCode"
-		});
-		expect(loadedSociogram).to.deep.equal(expectedSociogram);
-	});
-
 });

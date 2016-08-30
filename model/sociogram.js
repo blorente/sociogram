@@ -1,10 +1,17 @@
 "use strict";
 
+const PopulationBuilder = require('./population/builder.js');
+const QuestionnaireBuilder = require('./questionnaire/builder.js');
+
 class Sociogram {
-	constructor({name = "", date = "", groupCode = ""}) {
+	constructor({name = "", date = "", groupCode = "", template}) {
 		this.name = name;
 		this.date = date;
 		this.groupCode = groupCode;
+		if (template) {
+			this.population = PopulationBuilder.buildFromJSON(template.population);
+			this.questionnaire = QuestionnaireBuilder.buildFromJSON(template.questionnaire);
+		}
 	}
 
 	getName() {

@@ -81,7 +81,7 @@ describe('Population Tests', function() {
 		it('Returns the number of times addVariable was called', function() {
 			const filledPopulation = new Population({});
 			filledPopulation.addVariable(arbitraryVariable.name, arbitraryVariable.values);
-			expect(filledPopulation.getVariableCount()).to.equal(0);
+			expect(filledPopulation.getVariableCount()).to.equal(1);
 		});
 	});
 

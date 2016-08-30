@@ -25,7 +25,7 @@ class Population {
 	}
 
 	getVariableCount() {
-		return 0;
+		return this.variables.length;
 	}
 
 	addVariable(name, values) {

@@ -3,10 +3,10 @@
 const Questionnaire = require('./questionnaire.js');
 
 let Builder = {
-	buildFromJSON(json) {
-		if (json.questions) {
+	buildFromJSON(template) {
+		if (template && template.questions) {
 			const result = new Questionnaire({});
-			json.questions.forEach(function(elem) {
+			template.questions.forEach(function(elem) {
 				result.addQuestion(elem.name, elem.numChoices);
 			});
 			return result;
