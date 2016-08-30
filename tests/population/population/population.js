@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const Population = require('../../model/population.js');
+const Population = require('../../../model/population/population.js');
 
 describe('Population Tests', function() {
 	describe('constructor', function() {
