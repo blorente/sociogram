@@ -1,6 +1,8 @@
 "use strict";
 
 const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const glob = require('glob');
 
 let win;
 
@@ -17,7 +19,7 @@ function createWindow() {
 }
 
 app.on('ready', function() {
-	console.log('Hello!');
+	loadControllers();
 	createWindow();
 });
 
@@ -25,3 +27,10 @@ app.on('window-all-closed', () => {
 	console.log("Bye!");
 	app.quit();
 });
+
+function loadControllers() {
+	const files = glob.sync(path.join(__dirname, 'controllers/*.js'));
+	files.forEach(function (file) {
+    	require(file);
+  	});
+}
