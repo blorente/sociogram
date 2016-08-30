@@ -1,0 +1,26 @@
+{
+	"onlyVars": {
+		"variables": [
+			{"name": "Gender", "values": ["M", "F"]},
+			{"name": "Age", "values": ["12", "13", "14", "15"]}
+		]
+	},
+	"onlyIndividuals": {
+		"individuals": [
+			{"name": "Jake Weary", "id": 0},
+			{"name": "Ada Lovelace", "id": 1},
+			{"name": "Jason Bourne", "id": 2}
+		]
+	},
+	"fullPopulation": {
+		"variables": [
+			{"name": "Gender", "values": ["M", "F"]},
+			{"name": "Age", "values": ["12", "13", "14", "15"]}
+		],
+		"individuals": [
+			{"name": "Jake Weary", "id": 0},
+			{"name": "Ada Lovelace", "id": 1},
+			{"name": "Jason Bourne", "id": 2}
+		]
+	}
+}

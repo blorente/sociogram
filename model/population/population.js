@@ -29,7 +29,7 @@ class Population {
 	}
 
 	addVariable(name, values) {
-		this.variables.push(new StudyVariable(name, values));
+		this.variables.push(new StudyVariable({name, values}));
 	}
 
 	getVariableList() {
