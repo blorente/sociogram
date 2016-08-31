@@ -27,7 +27,13 @@ describe('Composer tests', function() {
 		});
 
 		it('Accepts a table => {type: "table", headers: [...], data: [...]}', function() {
-			const tableMock = mockData.tableMock;
+			const tableMock = mockData.verticalTableMock;
+			const result = Composer.composeData(tableMock.original);
+			expect(result).to.contain(tableMock.expected);
+		});
+
+		it('Accepts a horizontal table => {type: "table-horizontal", headers: [...], data: [...]}', function() {
+			const tableMock = mockData.horizontalTableMock;
 			const result = Composer.composeData(tableMock.original);
 			expect(result).to.contain(tableMock.expected);
 		});
@@ -47,10 +53,18 @@ describe('Composer tests', function() {
 		});
 	});
 
-	describe('composeTable', function() {
-		it('Should return a <table>', function() {
-			const tableMock = mockData.tableMock;
-			const result = Composer.composeTable(tableMock.original[0].headers, tableMock.original[0].data);
+	describe('composeVerticalTable', function() {
+		it('Should return a <table> with the headers on top', function() {
+			const tableMock = mockData.verticalTableMock;
+			const result = Composer.composeVerticalTable(tableMock.original[0].headers, tableMock.original[0].data);
+			expect(result).to.contain(tableMock.expected);
+		});
+	});
+
+	describe('composeHorizontalTable', function() {
+		it('Should return a <table> with the headers on the left', function() {
+			const tableMock = mockData.horizontalTableMock;
+			const result = Composer.composeHorizontalTable(tableMock.original[0].headers, tableMock.original[0].data);
 			expect(result).to.contain(tableMock.expected);
 		});
 	});

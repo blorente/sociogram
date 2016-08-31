@@ -7,7 +7,9 @@ const Composer = {
 			if (elem.type === 'title') {
 				result += Composer.composeTitle(elem.content);
 			} else if (elem.type === 'table') {
-				result += Composer.composeTable(elem.headers, elem.data);
+				result += Composer.composeVerticalTable(elem.headers, elem.data);
+			} else if (elem.type === 'table-horizontal') {
+				result += Composer.composeHorizontalTable(elem.headers, elem.data);
 			}
 			result += Composer.newLine();
 		});
@@ -18,7 +20,7 @@ const Composer = {
 		return `<strong>${title}</strong>`;
 	},
 
-	composeTable(headers, data) {
+	composeVerticalTable(headers, data) {
 		let table = '';
 		table += '<table class="table-striped">';
 		table += '<thead><tr>';
@@ -36,6 +38,22 @@ const Composer = {
 		});
 		table += '</tbody>';
 		table += '</table>';
+
+		return table;
+	},
+
+	composeHorizontalTable(headers, data) {
+		let table = '';
+		table += '<table class="table-striped"><tbody>';
+		headers.forEach(function(elem, index) {
+			table += '<tr>';
+			table += `<th><strong>${elem}</strong></th>`;
+			data[index].forEach(function(datum) {
+				table += `<td>${datum}</td>`;
+			});
+			table += '</tr>';
+		});
+		table += '</tbody></table>';
 
 		return table;
 	},

@@ -1,13 +1,21 @@
 {
 	"veryLongText": "Lorem ipsum dolor sit amet",
 	"titleMock": [{"type": "title", "content": "[=]Roses[=]"}],
-	"tableMock": {
+	"verticalTableMock": {
 		"original": [{
 			"type": "table",
 			"headers": ["One", "Two"],
 			"data": [["Hello", "World"], ["Lorem", "Ipsum"]]
-			}],
+		}],
 		"expected": "<table class=\"table-striped\"><thead><tr><th><strong>One</strong></th><th><strong>Two</strong></th></tr></thead><tbody><tr><td>Hello</td><td>World</td></tr><tr><td>Lorem</td><td>Ipsum</td></tr></tbody></table>"
+	},
+	"horizontalTableMock": {
+		"original": [{
+			"type": "table-horizontal",
+			"headers": ["One", "Two"],
+			"data": [["Hello", "World"], ["Lorem", "Ipsum"]]
+		}],
+		"expected": "<table class=\"table-striped\"><tbody><tr><th><strong>One</strong></th><td>Hello</td><td>World</td></tr><tr><th><strong>Two</strong></th><td>Lorem</td><td>Ipsum</td></tr></tbody></table>"
 	},
 	"invalidMock": {
 		"original": [{"type": "invalid"}],

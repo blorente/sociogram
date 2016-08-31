@@ -14,7 +14,7 @@ const Reporter = {
 					varnames.push(elem.name);
 					varvalues.push(elem.values);
 				})
-				formatted.push({type: "table", headers: varnames, data: varvalues});
+				formatted.push({type: "table-horizontal", headers: varnames, data: varvalues});
 				formatted.push({type: "title", content: "Individuals"});
 				const inddata = [];
 				sociogram.population.individuals.forEach(function(elem) {

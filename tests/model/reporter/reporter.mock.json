@@ -33,7 +33,7 @@
 				{"type": "title", "content": "EmptySoc-3ºA-2016/05/16"},
 				{"type": "title", "content": "Population"},
 				{"type": "title", "content": "Variables"},
-				{"type": "table", "headers": ["Gender", "Age"],
+				{"type": "table-horizontal", "headers": ["Gender", "Age"],
 					"data": [["M", "F"], ["12", "13", "14", "15"]]},
 				{"type": "title", "content": "Individuals"},
 				{"type": "table", "headers": ["Name", "ID"],
