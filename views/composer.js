@@ -23,7 +23,7 @@ const Composer = {
 		table += '<table class="table-striped">';
 		table += '<thead><tr>';
 		headers.forEach(function(elem) {
-			table += `<th>${elem}</th>`;
+			table += `<th><strong>${elem}</strong></th>`;
 		});
 		table += '</tr></thead>';
 		table += '<tbody>';
