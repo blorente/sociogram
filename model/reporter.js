@@ -31,7 +31,6 @@ const Reporter = {
 				formatted.push({type: "table", headers: ["Question", "Choices"], data: questdata});
 			}
 		} else {
-			console.log('undefined');
 		}
 		return formatted;
 	}
