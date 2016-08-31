@@ -41,6 +41,22 @@ class Sociogram {
 			groupCode: this.groupCode
 		}
 	}
+
+	hasPopulation() {
+		if (this.population) {
+			return this.population.getPopulationSize() > 0;
+		} else {
+			return false;
+		}
+	}
+
+	hasQuestionnaire() {
+		if (this.questionnaire) {
+			return this.questionnaire.getNumQuestions() > 0;
+		} else {
+			return false;
+		}
+	}
 }
 
 module.exports = Sociogram;

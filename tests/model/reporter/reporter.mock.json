@@ -1,0 +1,65 @@
+{
+	"sociograms": {
+		"headerOnly": {
+			"original": {
+				"name": "EmptySoc",
+				"date": "2016/05/16",
+				"groupCode": "3ºA"
+			},
+			"expected": [
+				{"type": "title", "content": "EmptySoc-3ºA-2016/05/16"}
+			]
+		},
+		"withPopulation": {
+			"original": {
+				"name": "EmptySoc",
+				"date": "2016/05/16",
+				"groupCode": "3ºA",
+				"template": {
+					"population": {
+						"variables": [
+							{"name": "Gender", "values": ["M", "F"]},
+							{"name": "Age", "values": ["12", "13", "14", "15"]}
+						],
+						"individuals": [
+							{"name": "Jake Weary", "id": 0},
+							{"name": "Ada Lovelace", "id": 1},
+							{"name": "Jason Bourne", "id": 2}
+						]
+					}
+				}
+			},
+			"expected": [
+				{"type": "title", "content": "EmptySoc-3ºA-2016/05/16"},
+				{"type": "title", "content": "Population"},
+				{"type": "title", "content": "Variables"},
+				{"type": "table", "headers": ["Gender", "Age"],
+					"data": [["M", "F"], ["12", "13", "14", "15"]]},
+				{"type": "title", "content": "Individuals"},
+				{"type": "table", "headers": ["Name", "ID"],
+					"data": [["Jake Weary", 0], ["Ada Lovelace", 1], ["Jason Bourne", 2]]}
+			]
+		},
+		"withQuestions": {
+			"original": {
+				"name": "EmptySoc",
+				"date": "2016/05/16",
+				"groupCode": "3ºA",
+				"template": {
+					"questionnaire": {
+						"questions": [
+							{"name": "How do you do?", "choices": 3},
+							{"name": "How yu duin?", "choices": 2}
+						]
+					}
+				}
+			},
+			"expected": [
+				{"type": "title", "content": "EmptySoc-3ºA-2016/05/16"},
+				{"type": "title", "content": "Questionnaire"},
+				{"type": "table", "headers": ["Question", "Choices"],
+					"data": [["How do you do?", 3], ["How yu duin?", 2]]}
+			]
+		}
+	}
+}

@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const Question = require('../../../model/questionnaire/question.js');
+const Question = require('../../../../model/questionnaire/question.js');
 
 describe('Questionnaire Question Test', function() {
 	it('An empty question has 0 choices', function() {
@@ -21,7 +21,7 @@ describe('Questionnaire Question Test', function() {
 		const arbitraryQuestionParams = require("./question.mock.json");
 		const arbitraryQuestion = new Question(arbitraryQuestionParams);
 		expect(arbitraryQuestion.getTitle()).to.be.a('string');
-		expect(arbitraryQuestion.getTitle()).to.equal(arbitraryQuestionParams.title);
+		expect(arbitraryQuestion.getTitle()).to.equal(arbitraryQuestionParams.name);
 		expect(arbitraryQuestion.getNumChoices()).to.be.a('number');
 		expect(arbitraryQuestion.getNumChoices()).to.equal(arbitraryQuestionParams.choices);
 	});

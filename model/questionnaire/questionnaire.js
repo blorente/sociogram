@@ -11,8 +11,8 @@ class Questionnaire {
 		return this.questions.length;
 	}
 
-	addQuestion(title, answerCount) {
-		this.questions.push(new Question(title, answerCount));
+	addQuestion(name, choices) {
+		this.questions.push(new Question({name, choices}));
 	}
 }
 

@@ -7,7 +7,7 @@ let Builder = {
 		if (template && template.questions) {
 			const result = new Questionnaire({});
 			template.questions.forEach(function(elem) {
-				result.addQuestion(elem.name, elem.numChoices);
+				result.addQuestion(elem.name, elem.choices);
 			});
 			return result;
 		} else {

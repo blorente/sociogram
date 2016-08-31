@@ -2,8 +2,8 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const Builder = require('../../../model/questionnaire/builder.js');
-const Questionnaire = require('../../../model/questionnaire/questionnaire.js');
+const Builder = require('../../../../model/questionnaire/builder.js');
+const Questionnaire = require('../../../../model/questionnaire/questionnaire.js');
 
 describe('Questionnaire Builder Tests', function() {
 	describe('buildFromJSON', function() {

@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const Questionnaire = require('../../../model/questionnaire/questionnaire.js');
+const Questionnaire = require('../../../../model/questionnaire/questionnaire.js');
 
 describe('Questionnaire Tests', function() {
 	describe('constructor', function() {

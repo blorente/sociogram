@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const Sociogram = require('../../model/sociogram.js');
+const Sociogram = require('../../../model/sociogram.js');
 
 describe('Sociogram Tests', function() {
 
@@ -91,6 +91,26 @@ describe('Sociogram Tests', function() {
 			const questionnaireJSON = require('./sociogram.mock.json').questionnaireJSON;
 			const questionnaireSociogram = new Sociogram(questionnaireJSON);
 			expect(questionnaireSociogram.questionnaire.getNumQuestions()).to.equal(questionnaireJSON.template.questionnaire.questions.length);
+		});
+	});
+
+	describe('hasPopulation', function() {
+		it('Returns true iff a population was passed in the constructor', function() {
+			const emptySociogram = new Sociogram({});
+			expect(emptySociogram.hasPopulation()).to.equal(false);
+			const populationJSON = require('./sociogram.mock.json').populationJSON;
+			const populatedSociogram = new Sociogram(populationJSON);
+			expect(populatedSociogram.hasPopulation()).to.equal(true);
+		});
+	});
+
+	describe('hasQuestionnaire', function() {
+		it('Returns true iff a questionnaire was passed in the constructor', function() {
+			const emptySociogram = new Sociogram({});
+			expect(emptySociogram.hasQuestionnaire()).to.equal(false);
+			const questionnaireJSON = require('./sociogram.mock.json').questionnaireJSON;
+			const questionnaireSociogram = new Sociogram(questionnaireJSON);
+			expect(questionnaireSociogram.hasQuestionnaire()).to.equal(true);
 		});
 	});
 

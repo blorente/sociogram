@@ -3,8 +3,8 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const Builder = require('../../../model/population/builder.js');
-const Population = require('../../../model/population/population.js');
+const Builder = require('../../../../model/population/builder.js');
+const Population = require('../../../../model/population/population.js');
 
 describe('Population Builder Tests', function() {
 	const mockPopulations = require('./builder.mock.json');

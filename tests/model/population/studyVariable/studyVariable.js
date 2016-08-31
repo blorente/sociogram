@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const expect = chai.expect;
-const StudyVariable = require('../../../model/population/studyVariable.js');
+const StudyVariable = require('../../../../model/population/studyVariable.js');
 
 describe('Study Variable Tests', function() {
 	it('An empty study variable has "" as a name', function() {
