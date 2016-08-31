@@ -1,0 +1,16 @@
+{
+	"veryLongText": "Lorem ipsum dolor sit amet",
+	"titleMock": [{"type": "title", "content": "[=]Roses[=]"}],
+	"tableMock": {
+		"original": [{
+			"type": "table",
+			"headers": ["One", "Two"],
+			"data": [["Hello", "World"], ["Lorem", "Ipsum"]]
+			}],
+		"expected": "<table class=\"table-striped\"><thead><tr><th>One</th><th>Two</th></tr></thead><tbody><tr><td>Hello</td><td>World</td></tr><tr><td>Lorem</td><td>Ipsum</td></tr></tbody></table>"
+	},
+	"invalidMock": {
+		"original": [{"type": "invalid"}],
+		"expected": ""
+	}
+}

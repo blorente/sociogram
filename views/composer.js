@@ -1,32 +1,42 @@
 "use strict";
 
 const Composer = {
-	printData(target, data) {
-		for (let attr in data) {
-			const elem = data[attr];
-			if (elem.type === 'table') {
-				appendTable(target, elem.headers, elem.data);
+	composeData(data) {
+		let result = '';
+		data.forEach(function(elem) {
+			if (elem.type === 'title') {
+				result += Composer.composeTitle(elem.content);
+			} else if (elem.type === 'table') {
+				result += Composer.composeTable(elem.headers, elem.data);
 			}
-		}
-	}
+		});
+		return result;
+	},
 
-	appendTable(target, headers, data) {
-		target += '<table class="table-striped">';
-		target += '<thead><tr>';
+	composeTitle(title) {
+		return `<strong>${title}</strong>`;
+	},
+
+	composeTable(headers, data) {
+		let table = '';
+		table += '<table class="table-striped">';
+		table += '<thead><tr>';
 		headers.forEach(function(elem) {
-			target += `<th>${elem}</th>`;
+			table += `<th>${elem}</th>`;
 		});
-		target += '</thead></tr>';
-		target += '<tbody>';
+		table += '</tr></thead>';
+		table += '<tbody>';
 		data.forEach(function(row) {
-			target += '<tr>';
+			table += '<tr>';
 			row.forEach(function(elem) {
-				target += `<td>${elem}</td>`;
+				table += `<td>${elem}</td>`;
 			});
-			target += '</tr>';
+			table += '</tr>';
 		});
-		target += '</tbody>';
-		target += '</table>';
+		table += '</tbody>';
+		table += '</table>';
+
+		return table;
 	}
 }
 
