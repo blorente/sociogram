@@ -32,10 +32,10 @@ describe('Composer tests', function() {
 			expect(result).to.contain(tableMock.expected);
 		});
 
-		it('Discards invalid types', function() {
+		it('Inserts newLine regardless of type', function() {
 			const invalidMock = mockData.invalidMock;
 			const result = Composer.composeData(invalidMock.original);
-			expect(result).to.equal('');
+			expect(result).to.equal(Composer.newLine());
 		});
 	});
 
@@ -52,6 +52,12 @@ describe('Composer tests', function() {
 			const tableMock = mockData.tableMock;
 			const result = Composer.composeTable(tableMock.original[0].headers, tableMock.original[0].data);
 			expect(result).to.contain(tableMock.expected);
+		});
+	});
+
+	describe('newLine', function() {
+		it('Should return </br>', function() {
+			expect(Composer.newLine()).to.equal('</br>');
 		});
 	});
 });

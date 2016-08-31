@@ -1,7 +1,7 @@
 {
-	"name": "testSociogram",
-	"date": "testDate",
-	"groupCode": "testGroupCode",
+	"name": "EmptySoc",
+	"date": "2016/07/05",
+	"groupCode": "3ºA",
 	"template": {
 		"questionnaire": {
 			"questions": [

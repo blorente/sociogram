@@ -9,6 +9,7 @@ const Composer = {
 			} else if (elem.type === 'table') {
 				result += Composer.composeTable(elem.headers, elem.data);
 			}
+			result += Composer.newLine();
 		});
 		return result;
 	},
@@ -37,6 +38,10 @@ const Composer = {
 		table += '</table>';
 
 		return table;
+	},
+
+	newLine() {
+		return '</br>';
 	}
 }
 

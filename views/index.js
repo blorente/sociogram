@@ -31,6 +31,6 @@ function displaySociogramTemplate(data) {
 	const mainWindow = document.getElementById('content-pane');
 	mainWindow.innerHTML = '';
 	mainWindow.innerHTML += '<p>';
-	Composer.printData(data);
+	mainWindow.innerHTML += Composer.composeData(data);
 	mainWindow.innerHTML += '</p>';
 }
