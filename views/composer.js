@@ -60,6 +60,47 @@ const Composer = {
 
 	newLine() {
 		return '</br>';
+	},
+
+	createSociogramForm(template) {
+		let form = '<form>';
+		if (template) {
+			template.forEach(function(elem) {
+				form += Composer.createFormElement(elem);
+			});
+		} else {
+			form += '';
+		}
+		form += '<button type="submit" class="btn btn-form btn-primary" id="save-sociogram">Save</button></form>';
+		return form;
+	},
+
+	createFormElement(elem) {
+		let element = '';
+		if (elem.type === 'group') {
+			element += Composer.createFormGroup(elem);
+		} else if (elem.type === 'input') {
+			element += Composer.createFormInput(elem);
+		}
+		return element;
+	},
+
+	createFormGroup(template) {
+		let group = '<div class=\"form-group\">';
+		group += `<label><h3>${template.title}</h3></label>`;
+		template.elems.forEach(function(elem) {
+			group += Composer.createFormElement(elem);
+		});
+		group += '</div>';
+		return group;
+	},
+
+	createFormInput(template) {
+		let input = '<div class=\"form-group\">';
+		input += `<label>${template.title}</label>`;
+		input += `<input type=\"text\" class=\"form-control\" placeholder=\"${template.title}\">`;
+		input += '</div>';
+		return input;
 	}
 }
 

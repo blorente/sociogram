@@ -61,5 +61,14 @@
 					"data": [["How do you do?", 3], ["How yu duin?", 2]]}
 			]
 		}
+	},
+	"forms": {
+		"headerOnly": [{"type": "group", "title": "Basic Information", "align": "horizontal", "elems": [
+							{"type": "input", "title": "Name", "extensible": false, "dimensions": 1},
+							{"type": "input", "title": "Group", "extensible": false, "dimensions": 1},
+							{"type": "input", "title": "Date", "extensible": false, "dimensions": 1}
+						]}
+		],
+		"singleField": {"type": "input", "title": "Name", "extensible": false, "dimensions": 1}
 	}
 }

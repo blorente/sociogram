@@ -20,5 +20,23 @@
 	"invalidMock": {
 		"original": [{"type": "invalid"}],
 		"expected": ""
+	},
+	"templates": {
+		"group": {
+			"original": [{"type": "group", "title": "Basic Information", "align": "horizontal", "elems": []}],
+			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label></div>"
+		},
+		"input": {
+			"nonExtensible": {
+				"original": [{"type": "input", "title": "Name", "extensible": false, "dimensions": 1}],
+				"expected": "<div class=\"form-group\"><label>Name</label><input type=\"text\" class=\"form-control\" placeholder=\"Name\"></div>"
+			}
+		},
+		"fullGroup": {
+			"original": [{"type": "group", "title": "Basic Information", "align": "horizontal", "elems": [
+							{"type": "input", "title": "Name", "extensible": false, "dimensions": 1}]
+						}],
+			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label><div class=\"form-group\"><label>Name</label><input type=\"text\" class=\"form-control\" placeholder=\"Name\"></div></div>"
+		}
 	}
 }

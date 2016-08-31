@@ -2,7 +2,7 @@
 
 const Population = require('./population.js');
 
-let Builder = {
+const Builder = {
 	buildFromJSON(template) {
 		let population = new Population({});
 		if (template) {
@@ -18,6 +18,13 @@ let Builder = {
 			}
 		}
 		return population;
+	},
+
+	createTemplate() {
+		return {
+			variables: [],
+			individuals: []
+		};
 	}
 }
 

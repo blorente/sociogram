@@ -44,4 +44,11 @@ describe('Population Builder Tests', function() {
 			});
 		});
 	});
+
+	describe('createTemplate', function() {
+		it('Returns a population with all the fields empty', function() {
+			const emptyTemplate = mockPopulations.emptyTemplate;
+			expect(Builder.createTemplate()).to.deep.equal(emptyTemplate);
+		});
+	});
 });

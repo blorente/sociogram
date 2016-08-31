@@ -74,4 +74,54 @@ describe('Composer tests', function() {
 			expect(Composer.newLine()).to.equal('</br>');
 		});
 	});
+
+	describe('createSociogramForm', function() {
+		it('Should contain a save-sociogram <button>', function() {
+			expect(Composer.createSociogramForm()).to.match(/.*<button.*id="save-sociogram".*>.*<\/button>/);
+		});
+
+		it('Should return a value wrapped in <form> tags', function() {
+			expect(Composer.createSociogramForm()).to.match(/<form.*<\/form>/);
+		});
+
+		it('Should accepts groups of input fields', function() {
+			const template = mockData.templates.fullGroup.original;
+			const expected = mockData.templates.fullGroup.expected;
+			expect(Composer.createSociogramForm(template)).to.contain(expected);
+		});
+	});
+
+	describe('createFormElement', function() {
+		it('Accepts a group => {type: "group", title: \'...\', align: \'horizontal/vertical\', elems: []}', function() {
+			const template = mockData.templates.group.original[0];
+			const expected = mockData.templates.group.expected;
+			expect(Composer.createFormElement(template)).to.contain(expected);
+		});
+
+		it('Accepts a non-extensible input => {type: "input", title: \'...\', extensible: false, dimensions: 1}', function() {
+			const template = mockData.templates.input.nonExtensible.original[0];
+			const expected = mockData.templates.input.nonExtensible.expected;
+			expect(Composer.createFormElement(template)).to.contain(expected);
+		});
+
+		it('Ignores nonvalid types', function() {
+			expect(Composer.createFormElement({type: "bad"})).to.equal('');
+		});
+	});
+
+	describe('createFormGroup', function() {
+		it('Should return a group element', function() {
+			const template = mockData.templates.group.original[0];
+			const expected = mockData.templates.group.expected;
+			expect(Composer.createFormGroup(template)).to.contain(expected);
+		});
+	});
+
+	describe('createFormInput', function() {
+		it('Should return a title and one or more input fields', function() {
+			const template = mockData.templates.input.nonExtensible.original[0];
+			const expected = mockData.templates.input.nonExtensible.expected;
+			expect(Composer.createFormElement(template)).to.contain(expected);
+		});
+	});
 });

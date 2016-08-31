@@ -4,5 +4,8 @@
 			{"name": "How do you do?", "choices": 3},
 			{"name": "How yu duin?", "choices": 2}
 		]
+	},
+	"emptyTemplate": {
+		"questions": []
 	}
 }

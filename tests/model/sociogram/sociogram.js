@@ -114,6 +114,14 @@ describe('Sociogram Tests', function() {
 		});
 	});
 
+	describe('createTemplate', function() {
+		it('An empty sociogram returns an empty template', function() {
+			const emptyTemplate = require('./sociogram.mock.json').emptyTemplate;
+			const emptySociogram = new Sociogram({});
+			expect(emptySociogram.createTemplate()).to.deep.equal(emptyTemplate);
+		});
+	});
+
 	it('The sociogram can have a title in the format "<name>-<group>-<date>"', function() {
 		const arbitraryName = "New Sociogram";
 		const arbitraryDateString = "2016-05-21";

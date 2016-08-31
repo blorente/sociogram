@@ -3,34 +3,41 @@
 const ipc = require('electron').ipcRenderer;
 const Composer = require('./composer.js');
 
+const mainWindow = document.getElementById('content-pane');
 const openSociogramBtn = document.getElementById('open-sociogram');
+const newSociogramBtn = document.getElementById('create-sociogram');
 
-openSociogramBtn.addEventListener('click', function (event) {
+openSociogramBtn.addEventListener('click', function(event) {
 	ipc.send('open-sociogram-dialog');
 });
 
-ipc.on('sociogram-opened', function (event, [path], sociogram) {
-	addToRecentSociograms(path);
-	displaySociogramTemplate(sociogram);
+newSociogramBtn.addEventListener('click', function(event) {
+	ipc.send('create-sociogram');
 });
 
-function addToRecentSociograms(path) {
-	let recentSociograms = document.getElementById('recent-sociograms');
-	const filename = path.split('/').pop(0);
-	const listItem = document.createElement("li");
-	listItem.className = "list-group-item";
-	listItem.innerHTML =
-	`<div class="media-body">
-		<strong>${filename}</strong>
-		<p>${path}</p>
-	</div>`;
-	recentSociograms.appendChild(listItem);
+ipc.on('sociogram-open-done', function(event, [path], sociogram) {
+	displaySociogramTemplate(sociogram);
+	displaySociogramOperationsTree(sociogram);
+});
+
+ipc.on('display-sociogram-creation', function(event, template) {
+	displayCreateSociogramPage(template);
+});
+
+function displaySociogramTree(sociogram) {
+	alert('STUB: Add tree view of sociogram operations?');
 }
 
 function displaySociogramTemplate(data) {
-	const mainWindow = document.getElementById('content-pane');
 	mainWindow.innerHTML = '';
 	mainWindow.innerHTML += '<p>';
 	mainWindow.innerHTML += Composer.composeData(data);
 	mainWindow.innerHTML += '</p>';
+}
+
+function displayCreateSociogramPage(template) {
+	mainWindow.innerHTML = Composer.createSociogramForm(template);
+	document.getElementById('save-sociogram').addEventListener('click', function() {
+		ipc.send('update-sociogram');
+	});
 }

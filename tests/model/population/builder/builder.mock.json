@@ -22,5 +22,9 @@
 			{"name": "Ada Lovelace", "id": 1},
 			{"name": "Jason Bourne", "id": 2}
 		]
+	},
+	"emptyTemplate": {
+		"variables": [],
+		"individuals": []
 	}
 }

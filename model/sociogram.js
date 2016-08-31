@@ -57,6 +57,18 @@ class Sociogram {
 			return false;
 		}
 	}
+
+	createTemplate() {
+		return {
+			name: "",
+			date: "",
+			groupCode: "",
+			template: {
+				population: PopulationBuilder.createTemplate(),
+				questionnaire: QuestionnaireBuilder.createTemplate()
+			}
+		}
+	}
 }
 
 module.exports = Sociogram;

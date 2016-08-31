@@ -33,7 +33,22 @@ const Reporter = {
 		} else {
 		}
 		return formatted;
+	},
+
+	reportSociogramForm(template) {
+		const formatted = [];
+		const headerGroup = {type: 'group', title: 'Basic Information', align: 'horizontal', elems: []};
+		headerGroup.elems.push(Reporter.constructSingleField('Name'));
+		headerGroup.elems.push(Reporter.constructSingleField('Group'));
+		headerGroup.elems.push(Reporter.constructSingleField('Date'));
+		formatted.push(headerGroup);
+		return formatted;
+	},
+
+	constructSingleField(title) {
+		return {"type": "input", "title": title, "extensible": false, "dimensions": 1};
 	}
+
 }
 
 module.exports = Reporter;

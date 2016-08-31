@@ -34,5 +34,19 @@
 				]
 			}
 		}
+	},
+	"emptyTemplate": {
+		"name": "",
+		"date": "",
+		"groupCode": "",
+		"template": {
+			"population": {
+				"variables": [],
+				"individuals": []
+			},
+			"questionnaire": {
+				"questions": []
+			}
+		}
 	}
 }

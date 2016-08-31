@@ -13,6 +13,10 @@ let Builder = {
 		} else {
 			return new Questionnaire({});
 		}
+	},
+
+	createTemplate() {
+		return { questions: [] };
 	}
 }
 

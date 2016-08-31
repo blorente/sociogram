@@ -6,29 +6,46 @@ const Reporter = require('../../../model/reporter.js');
 const Sociogram = require('../../../model/sociogram.js');
 
 describe('Reporter Tests', function() {
+	const sociograms = require('./reporter.mock.json').sociograms;
+	const forms = require('./reporter.mock.json').forms;
+
 	describe('reportSociogram', function() {
-		const mocks = require('./reporter.mock.json').sociograms;
 
 		it('Returns an empty object if an empty object was passed', function() {
 			expect(Reporter.reportSociogram()).to.deep.equal([]);
 		});
 
 		it('Formats correctly an empty sociogram', function() {
-			const headerOnly = new Sociogram(mocks.headerOnly.original);
+			const headerOnly = new Sociogram(sociograms.headerOnly.original);
 			expect(Reporter.reportSociogram(headerOnly))
-				.to.deep.equal(mocks.headerOnly.expected);
+				.to.deep.equal(sociograms.headerOnly.expected);
 		});
 
 		it('Formats a sociogram with a population', function() {
-			const withPopulation = new Sociogram(mocks.withPopulation.original);
+			const withPopulation = new Sociogram(sociograms.withPopulation.original);
 			expect(Reporter.reportSociogram(withPopulation))
-				.to.deep.equal(mocks.withPopulation.expected);
+				.to.deep.equal(sociograms.withPopulation.expected);
 		});
 
 		it('Formats a sociogram with a questionnaire', function() {
-			const withQuestions = new Sociogram(mocks.withQuestions.original);
+			const withQuestions = new Sociogram(sociograms.withQuestions.original);
 			expect(Reporter.reportSociogram(withQuestions))
-				.to.deep.equal(mocks.withQuestions.expected);
+				.to.deep.equal(sociograms.withQuestions.expected);
+		});
+	});
+
+	describe('reportSociogramForm', function() {
+		it('Sould convert the sociogram\'s header', function() {
+			const template = new Sociogram(sociograms.headerOnly.original).createTemplate();
+			expect(Reporter.reportSociogramForm(template)).to.deep.equal(forms.headerOnly);
+		});
+	});
+
+	describe('constructSingleField', function() {
+		it('Should convert a name into a single field', function() {
+			const expected = forms.singleField;
+			const field = Reporter.constructSingleField(expected.title);
+			expect(field).to.deep.equal(expected);
 		});
 	});
 });
