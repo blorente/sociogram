@@ -88,18 +88,29 @@ const Composer = {
 	createFormGroup(template) {
 		let group = '<div class=\"form-group\">';
 		group += `<label><h3>${template.title}</h3></label>`;
-		template.elems.forEach(function(elem) {
-			group += Composer.createFormElement(elem);
-		});
+		if (template.elems && template.elems.length > 0) {
+			group += '<table><tbody>';
+			let labels = '<tr>';
+			let fields = '<tr>';
+			template.elems.forEach(function(elem) {
+				const created = Composer.createFormElement(elem);
+				labels += '<td>' + created.match(/<label>.*<\/label>/).toString() + '</td>';
+				fields += '<td>' + created.replace(/.*<label>.*<\/label>/, '') + '</td>';
+			});
+			labels += '</tr>';
+			fields += '</tr>';
+			group += labels;
+			group += fields;
+			group += '</tbody></table>';
+		}
 		group += '</div>';
 		return group;
 	},
 
 	createFormInput(template) {
-		let input = '<div class=\"form-group\">';
+		let input = '';
 		input += `<label>${template.title}</label>`;
 		input += `<input type=\"text\" class=\"form-control\" placeholder=\"${template.title}\">`;
-		input += '</div>';
 		return input;
 	}
 }

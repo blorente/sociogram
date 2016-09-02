@@ -84,7 +84,7 @@ describe('Composer tests', function() {
 			expect(Composer.createSociogramForm()).to.match(/<form.*<\/form>/);
 		});
 
-		it('Should accepts groups of input fields', function() {
+		it('Should accept groups of input fields', function() {
 			const template = mockData.templates.fullGroup.original;
 			const expected = mockData.templates.fullGroup.expected;
 			expect(Composer.createSociogramForm(template)).to.contain(expected);
@@ -92,7 +92,7 @@ describe('Composer tests', function() {
 	});
 
 	describe('createFormElement', function() {
-		it('Accepts a group => {type: "group", title: \'...\', align: \'horizontal/vertical\', elems: []}', function() {
+		it('Accepts a group => {type: "group", title: \'...\', elems: []}', function() {
 			const template = mockData.templates.group.original[0];
 			const expected = mockData.templates.group.expected;
 			expect(Composer.createFormElement(template)).to.contain(expected);

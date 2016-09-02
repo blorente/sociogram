@@ -37,7 +37,7 @@ const Reporter = {
 
 	reportSociogramForm(template) {
 		const formatted = [];
-		const headerGroup = {type: 'group', title: 'Basic Information', align: 'horizontal', elems: []};
+		const headerGroup = {type: 'group', title: 'Basic Information', elems: []};
 		headerGroup.elems.push(Reporter.constructSingleField('Name'));
 		headerGroup.elems.push(Reporter.constructSingleField('Group'));
 		headerGroup.elems.push(Reporter.constructSingleField('Date'));

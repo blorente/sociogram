@@ -23,20 +23,21 @@
 	},
 	"templates": {
 		"group": {
-			"original": [{"type": "group", "title": "Basic Information", "align": "horizontal", "elems": []}],
+			"original": [{"type": "group", "title": "Basic Information", "elems": []}],
 			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label></div>"
 		},
 		"input": {
 			"nonExtensible": {
 				"original": [{"type": "input", "title": "Name", "extensible": false, "dimensions": 1}],
-				"expected": "<div class=\"form-group\"><label>Name</label><input type=\"text\" class=\"form-control\" placeholder=\"Name\"></div>"
+				"expected": "<label>Name</label><input type=\"text\" class=\"form-control\" placeholder=\"Name\">"
 			}
 		},
 		"fullGroup": {
-			"original": [{"type": "group", "title": "Basic Information", "align": "horizontal", "elems": [
-							{"type": "input", "title": "Name", "extensible": false, "dimensions": 1}]
+			"original": [{"type": "group", "title": "Basic Information", "elems": [
+							{"type": "input", "title": "Name", "extensible": false, "dimensions": 1},
+							{"type": "input", "title": "Group", "extensible": false, "dimensions": 1}]
 						}],
-			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label><div class=\"form-group\"><label>Name</label><input type=\"text\" class=\"form-control\" placeholder=\"Name\"></div></div>"
+			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label><table><tbody><tr><td><label>Name</label></td><td><label>Group</label></td></tr><tr><td><input type=\"text\" class=\"form-control\" placeholder=\"Name\"></td><td><input type=\"text\" class=\"form-control\" placeholder=\"Group\"></td></tr></tbody></table></div>"
 		}
 	}
 }
