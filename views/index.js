@@ -4,40 +4,24 @@ const ipc = require('electron').ipcRenderer;
 const Composer = require('./composer.js');
 
 const mainWindow = document.getElementById('content-pane');
-const openSociogramBtn = document.getElementById('open-sociogram');
-const newSociogramBtn = document.getElementById('create-sociogram');
 
-openSociogramBtn.addEventListener('click', function(event) {
-	ipc.send('open-sociogram-dialog');
+ipc.on('display-sociogram-data', function(event, [path], sociogram) {
+	displaySection('display-sociogram');
 });
 
-newSociogramBtn.addEventListener('click', function(event) {
-	ipc.send('create-sociogram');
+ipc.on('display-sociogram-creation', function(event) {
+	displaySection('create-header');	
 });
 
-ipc.on('sociogram-open-done', function(event, [path], sociogram) {
-	displaySociogramTemplate(sociogram);
-	displaySociogramOperationsTree(sociogram);
-});
-
-ipc.on('display-sociogram-creation', function(event, template) {
-	displayCreateSociogramPage(template);
-});
-
-function displaySociogramTree(sociogram) {
-	alert('STUB: Add tree view of sociogram operations?');
-}
-
-function displaySociogramTemplate(data) {
+function displaySection(name) {
 	mainWindow.innerHTML = '';
-	mainWindow.innerHTML += '<p>';
-	mainWindow.innerHTML += Composer.composeData(data);
-	mainWindow.innerHTML += '</p>';
+	const link = document.querySelector(`link[id="${name}-section"]`);
+
+	// Clone the <template> in the import.
+	const template = link.import.querySelector('template');
+	const clone = document.importNode(template.content, true);
+
+	mainWindow.appendChild(clone);
 }
 
-function displayCreateSociogramPage(template) {
-	mainWindow.innerHTML = Composer.createSociogramForm(template);
-	document.getElementById('save-sociogram').addEventListener('click', function() {
-		ipc.send('update-sociogram');
-	});
-}
+displaySection('welcome');

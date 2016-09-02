@@ -3,13 +3,15 @@
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const glob = require('glob');
+const ipc = require('electron').ipcMain;
 
 let win;
 
 function createWindow() {
 	win = new BrowserWindow({
 		width: 800,
-		height: 600
+		height: 600,
+		fullscreen: true
 	});
 
 	win.loadURL(`file://${__dirname}/views/index.html`);

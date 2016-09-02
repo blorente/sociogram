@@ -16,9 +16,8 @@ ipc.on('open-sociogram-dialog', function (event) {
 	}, function (file) {
 		if (file) {
 			fs.readFile(file.toString(), 'utf-8', function(err, raw) {
-				const sociogram = new Sociogram(JSON.parse(raw));
-				const data = Reporter.reportSociogram(sociogram);
-				event.sender.send('sociogram-open-done', file, data);
+				currentSociogram = new Sociogram(JSON.parse(raw));
+				event.sender.send('display-sociogram-data', file);
 			});
 		} else {
 			event.sender.send('sociogram-open-cancel');
@@ -31,7 +30,16 @@ ipc.on('create-sociogram', function(event) {
 		askSaveSociogram(currentSociogram);
 	}
 	initValues();
-	event.sender.send('display-sociogram-creation', Reporter.reportSociogramForm(currentSociogram.createTemplate()));
+	event.sender.send('display-sociogram-creation');
+});
+
+ipc.on('query-sociogram-template', function(event) {
+	event.sender.send('response-sociogram-template',
+		Reporter.reportSociogramForm(currentSociogram.createTemplate()));
+});
+
+ipc.on('query-sociogram-state', function(event) {
+	event.sender.send('response-sociogram-state', Reporter.reportSociogram(currentSociogram));
 });
 
 ipc.on('update-sociogram', function(event) {

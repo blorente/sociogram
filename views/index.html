@@ -1,70 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Photon</title>
+    <title>Sociogram</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/photon/css/photon.min.css">
+
+	<link rel="import" href="./sections/welcome.html" id="welcome-section">
+	<link rel="import" href="./sections/create-header.html" id="create-header-section">
+	<link rel="import" href="./sections/display-sociogram.html" id="display-sociogram-section">
   </head>
 
   <body>
 		<div class="window">
 			<div class="window">
-				<div class="window-content">
-					<div class="pane-group">
-						<div class="pane-sm sidebar">
-							<ul class="list-group" id="recent-sociograms">
-								<li class="list-group-header">
-									<div class="media-body">
-										<strong>Sociograms</strong>
-									</div>
-								</li>
-								<li class="list-group-item">
-									<div class="media-body">
-										<strong>List item title</strong>
-										<p>Lorem ipsum dolor sit amet.</p>
-									</div>
-								</li>
-							</ul>
-							<div class="media-body">
-								<button class="btn btn-large btn-default" id="create-sociogram">
-									<span class="icon icon-plus-squared"></span>
-									New
-								</button>
-								<button class="btn btn-large btn-default" id="open-sociogram">
-									<span class="icon icon-folder"></span>
-									Open
-								</button>
-							</div>
-						</div>
-						<div class="pane" id="content-pane">
-							<h5>Welcome to Sociogram</h5>
-							<p>
-								<table class="table-striped">
-									<tr>
-										<tbody>
-											<th><strong>One</strong></th>
-											<td>Hello</td>
-											<td>World</td>
-										</tbody>
-									</tr>
-									<tr>
-										<tbody>
-											<th><strong>Two</strong></th>
-											<td>Bye</td>
-											<td>YOu</td>
-										</tbody>
-									</tr>
-								</table>
-							</p>
-						</div>
-					</div>
+				<div class="window-content" id="content-pane">
+
 				</div>
 			</div>
 		</div>
 
 	<script type="text/javascript">
-		require('./index.js');
+		const logic = require('./index.js');
 	</script>
 	</body>
 </html>
