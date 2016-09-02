@@ -92,15 +92,15 @@ describe('Composer tests', function() {
 	});
 
 	describe('createFormElement', function() {
-		it('Accepts a group => {type: "group", title: \'...\', elems: []}', function() {
+		it('Accepts a group => {type: "group", title: \'...\', extend: \'none/vertical/horizontal\',  elems: []}', function() {
 			const template = mockData.templates.group.original[0];
 			const expected = mockData.templates.group.expected;
 			expect(Composer.createFormElement(template)).to.contain(expected);
 		});
 
-		it('Accepts a non-extensible input => {type: "input", title: \'...\', extensible: false, dimensions: 1}', function() {
-			const template = mockData.templates.input.nonExtensible.original[0];
-			const expected = mockData.templates.input.nonExtensible.expected;
+		it('Accepts a non-extensible input => {type: "input", title: \'...\'}', function() {
+			const template = mockData.templates.input.single.original[0];
+			const expected = mockData.templates.input.single.expected;
 			expect(Composer.createFormElement(template)).to.contain(expected);
 		});
 
@@ -115,12 +115,18 @@ describe('Composer tests', function() {
 			const expected = mockData.templates.group.expected;
 			expect(Composer.createFormGroup(template)).to.contain(expected);
 		});
+
+		it('Should add an extend button at the bottom for vertical extend groups', function() {
+			const template = mockData.templates.extendvert.original[0];
+			const expected = mockData.templates.extendvert.expected;
+			expect(Composer.createFormGroup(template)).to.contain(expected);
+		});
 	});
 
 	describe('createFormInput', function() {
 		it('Should return a title and one or more input fields', function() {
-			const template = mockData.templates.input.nonExtensible.original[0];
-			const expected = mockData.templates.input.nonExtensible.expected;
+			const template = mockData.templates.input.single.original[0];
+			const expected = mockData.templates.input.single.expected;
 			expect(Composer.createFormElement(template)).to.contain(expected);
 		});
 	});

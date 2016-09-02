@@ -27,17 +27,24 @@
 			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label></div>"
 		},
 		"input": {
-			"nonExtensible": {
-				"original": [{"type": "input", "title": "Name", "extensible": false, "dimensions": 1}],
+			"single": {
+				"original": [{"type": "input", "title": "Name"}],
 				"expected": "<label>Name</label><input type=\"text\" class=\"form-control\" placeholder=\"Name\">"
 			}
 		},
 		"fullGroup": {
 			"original": [{"type": "group", "title": "Basic Information", "elems": [
-							{"type": "input", "title": "Name", "extensible": false, "dimensions": 1},
-							{"type": "input", "title": "Group", "extensible": false, "dimensions": 1}]
+							{"type": "input", "title": "Name"},
+							{"type": "input", "title": "Group"}]
 						}],
 			"expected": "<div class=\"form-group\"><label><h3>Basic Information</h3></label><table><tbody><tr><td><label>Name</label></td><td><label>Group</label></td></tr><tr><td><input type=\"text\" class=\"form-control\" placeholder=\"Name\"></td><td><input type=\"text\" class=\"form-control\" placeholder=\"Group\"></td></tr></tbody></table></div>"
+		},
+		"extendvert": {
+			"original": [{"type": "group", "title": "Questions", "extend": "vertical", "elems": [
+							{"type": "input", "title": "Question"},
+							{"type": "input", "title": "No. Choices"}]
+						}],
+			"expected": "<div class=\"form-group\"><label><h3>Questions</h3></label><table><tbody><tr><td><label>Question</label></td><td><label>No. Choices</label></td></tr><tr><td><input type=\"text\" class=\"form-control\" placeholder=\"Question\"></td><td><input type=\"text\" class=\"form-control\" placeholder=\"No. Choices\"></td></tr><tr><td><button type=\"submit\" class=\"btn btn-form btn-primary\" id=\"extend-questions\">Add</button></td></tr></tbody></table></div>"
 		}
 	}
 }

@@ -63,12 +63,22 @@
 		}
 	},
 	"forms": {
-		"headerOnly": [{"type": "group", "title": "Basic Information", "elems": [
-							{"type": "input", "title": "Name", "extensible": false, "dimensions": 1},
-							{"type": "input", "title": "Group", "extensible": false, "dimensions": 1},
-							{"type": "input", "title": "Date", "extensible": false, "dimensions": 1}
+		"singleField": {"type": "input", "title": "Name"},
+		"headerOnly": [{"type": "group", "title": "Basic Information", "extend": "none", "elems": [
+							{"type": "input", "title": "Name"},
+							{"type": "input", "title": "Group"},
+							{"type": "input", "title": "Date"}
 						]}
 		],
-		"singleField": {"type": "input", "title": "Name", "extensible": false, "dimensions": 1}
+		"withQuestions": [{"type": "group", "title": "Basic Information", "extend": "none", "elems": [
+							{"type": "input", "title": "Name"},
+							{"type": "input", "title": "Group"},
+							{"type": "input", "title": "Date"}
+						]},
+						{"type": "group", "title": "Questions", "extend": "vertical", "elems": [
+							{"type": "input", "title": "Question"},
+							{"type": "input", "title": "No. Choices"}
+						]}
+		]
 	}
 }

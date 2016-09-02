@@ -37,7 +37,18 @@ describe('Reporter Tests', function() {
 	describe('reportSociogramForm', function() {
 		it('Sould convert the sociogram\'s header', function() {
 			const template = new Sociogram(sociograms.headerOnly.original).createTemplate();
-			expect(Reporter.reportSociogramForm(template)).to.deep.equal(forms.headerOnly);
+			const report = Reporter.reportSociogramForm(template);
+			forms.headerOnly.forEach(function(elem) {
+				expect(report).to.deep.contain(elem);
+			});
+		});
+
+		it('Should have a field for questions', function() {
+			const template = new Sociogram(sociograms.withQuestions.original).createTemplate();
+			const report = Reporter.reportSociogramForm(template);
+			forms.withQuestions.forEach(function(elem) {
+				expect(report).to.deep.contain(elem);
+			});
 		});
 	});
 

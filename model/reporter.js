@@ -37,16 +37,20 @@ const Reporter = {
 
 	reportSociogramForm(template) {
 		const formatted = [];
-		const headerGroup = {type: 'group', title: 'Basic Information', elems: []};
+		const headerGroup = {type: 'group', title: 'Basic Information', extend: "none", elems: []};
 		headerGroup.elems.push(Reporter.constructSingleField('Name'));
 		headerGroup.elems.push(Reporter.constructSingleField('Group'));
 		headerGroup.elems.push(Reporter.constructSingleField('Date'));
 		formatted.push(headerGroup);
+		const questionGroup = {type: 'group', title: "Questions", extend: "vertical", elems: []};
+		questionGroup.elems.push(Reporter.constructSingleField('Question'));
+		questionGroup.elems.push(Reporter.constructSingleField('No. Choices'));
+		formatted.push(questionGroup);
 		return formatted;
 	},
 
 	constructSingleField(title) {
-		return {"type": "input", "title": title, "extensible": false, "dimensions": 1};
+		return {"type": "input", "title": title};
 	}
 
 }
