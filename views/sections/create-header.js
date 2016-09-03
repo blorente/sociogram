@@ -3,24 +3,21 @@
 const ipc = require('electron').ipcRenderer;
 const Composer = require('./../composer.js');
 
-const content = document.getElementById('create-header');
-let form = {};
-
-ipc.send('query-sociogram-template');
-ipc.on('response-sociogram-template', function(event, template) {
-	form = template;
+document.querySelectorAll(`button`).forEach(function(elem) {
+	if (elem.id.match(/extend-v-\w*/)) {
+		const table = document.getElementById(elem.id.replace(/extend-v-/, ''));
+		elem.addEventListener('click', function(event) {
+			extendTableVertical(table);
+		});
+	} else if (elem.id.match(/extend-h-\w*/)) {
+		const table = document.getElementById(elem.id.replace(/extend-h-/, ''));
+		elem.addEventListener('click', function(event) {
+			extendTableHorizontal(table);
+		});
+	}
 });
 
-function displayCreateSociogramPage(form) {
-	document.getElementById('save-sociogram').addEventListener('click', function() {
-		ipc.send('update-sociogram');
-	});
-	document.querySelectorAll(`button`).forEach(function(elem) {
-		if (elem.id.match(/extend-\w*/)) {
-			elem.addEventListener('click', function() {
-				const name = this.id.replace(/extend-/, '');
-				console.log(name);
-			});
-		}
-	});
+function extendTableVertical(table) {
+	let newRow = table.insertRow(table.rows.length - 1);
+	newRow.innerHTML = table.rows[table.rows.length - 3].innerHTML;
 }

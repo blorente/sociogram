@@ -1,7 +1,67 @@
 <template>
 	<section id="create-header">
-		<div class="pane" id="content-pane">
-		</div>
+		<form>
+			<div class="form-group" id="metadata">
+				<label><h3>Basic Information</h3></label>
+				<table>
+					<tbody>
+						<tr>
+							<td><label>Name</label></td>
+							<td><label>Group</label></td>
+							<td><label>Date</label></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control" placeholder="Name"></td>
+							<td><input type="text" class="form-control" placeholder="Group"></td>
+							<td><input type="text" class="form-control" placeholder="Date"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="form-group" id="questionnaire">
+				<label><h3>Questionnaire</h3></label>
+				<table class="table" id="questions">
+					<tbody>
+						<tr>
+							<td><label>Question</label></td>
+							<td><label>No. Choices</label></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control" placeholder="Question"></td>
+							<td><input type="text" class="form-control" placeholder="No. Choices"></td>
+						</tr>
+						<tr>
+							<td><button type="button" class="btn btn-large" name="Add" id="extend-v-questions">Add</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="form-group" id="study">
+				<label><h3>Variables</h3></label>
+				<table class="table" id="variables">
+					<tbody>
+						<tr>
+							<td><label>Variable</label></td>
+							<td><label>Possible Values</label></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control" placeholder="Variable"></td>
+							<td><input type="text" class="form-control"></td>
+							<td><input type="text" class="form-control"></td>
+							<td><input type="text" class="form-control"></td>
+							<td><input type="text" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><button type="button" class="btn btn-large" name="Add" id="extend-v-variables">Add</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-form btn-default" id='cancel'>Cancel</button>
+				<button type="submit" class="btn btn-form btn-primary" id='next'>Next</button>
+			</div>
+		</form>
 	</section>
 	<script type="text/javascript">
 		require('./sections/create-header.js');
