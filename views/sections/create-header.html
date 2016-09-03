@@ -1,14 +1,14 @@
 <template>
 	<section id="create-header">
-		<form>
+		<form id="create-header-form">
 			<div class="form-group" id="metadata">
 				<label><h3>Basic Information</h3></label>
 				<table>
 					<tbody>
 						<tr>
-							<td><label>Name</label></td>
-							<td><label>Group</label></td>
-							<td><label>Date</label></td>
+							<td id="name"><label>Name</label></td>
+							<td id="group"><label>Group</label></td>
+							<td id="date"><label>Date</label></td>
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control" placeholder="Name"></td>
@@ -23,8 +23,8 @@
 				<table class="table" id="questions">
 					<tbody>
 						<tr>
-							<td><label>Question</label></td>
-							<td><label>No. Choices</label></td>
+							<td id="question"><label>Question</label></td>
+							<td id="choices"><label>No. Choices</label></td>
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control" placeholder="Question"></td>
@@ -41,8 +41,8 @@
 				<table class="table" id="variables">
 					<tbody>
 						<tr>
-							<td><label>Variable</label></td>
-							<td><label>Possible Values</label></td>
+							<td id="variable"><label>Variable</label></td>
+							<td id="values"><label>Possible Values</label></td>
 						</tr>
 						<tr>
 							<td><input type="text" class="form-control" placeholder="Variable"></td>
@@ -58,8 +58,8 @@
 				</table>
 			</div>
 			<div class="form-actions">
-				<button type="submit" class="btn btn-form btn-default" id='cancel'>Cancel</button>
-				<button type="submit" class="btn btn-form btn-primary" id='next'>Next</button>
+				<button type="button" class="btn btn-form btn-default" id='cancel'>Cancel</button>
+				<button type="button" class="btn btn-form btn-primary" id='next'>Next</button>
 			</div>
 		</form>
 	</section>

@@ -42,8 +42,8 @@ ipc.on('query-sociogram-state', function(event) {
 	event.sender.send('response-sociogram-state', Reporter.reportSociogram(currentSociogram));
 });
 
-ipc.on('update-sociogram', function(event) {
-	askSaveSociogram(currentSociogram);
+ipc.on('update-sociogram', function(event, data) {
+	console.log(data);
 });
 
 function initValues() {

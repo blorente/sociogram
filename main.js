@@ -9,9 +9,8 @@ let win;
 
 function createWindow() {
 	win = new BrowserWindow({
-		width: 800,
-		height: 600,
-		fullscreen: true
+		width: 1280,
+		height: 1026
 	});
 
 	win.loadURL(`file://${__dirname}/views/index.html`);

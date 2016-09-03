@@ -1,23 +1,13 @@
 "use strict";
 
 const ipc = require('electron').ipcRenderer;
-const Composer = require('./../composer.js');
+const htmlUtils = require('./../htmlutils.js');
+const Collector = require('./../collector.js');
 
-document.querySelectorAll(`button`).forEach(function(elem) {
-	if (elem.id.match(/extend-v-\w*/)) {
-		const table = document.getElementById(elem.id.replace(/extend-v-/, ''));
-		elem.addEventListener('click', function(event) {
-			extendTableVertical(table);
-		});
-	} else if (elem.id.match(/extend-h-\w*/)) {
-		const table = document.getElementById(elem.id.replace(/extend-h-/, ''));
-		elem.addEventListener('click', function(event) {
-			extendTableHorizontal(table);
-		});
-	}
+htmlUtils.makeFormsExtendable();
+
+document.getElementById('next').addEventListener('click', function(event) {
+	const form = document.getElementById('create-header-form');
+	const formData = Collector.collectFormData(form);
+	ipc.send('update-sociogram', formData);
 });
-
-function extendTableVertical(table) {
-	let newRow = table.insertRow(table.rows.length - 1);
-	newRow.innerHTML = table.rows[table.rows.length - 3].innerHTML;
-}
