@@ -1,0 +1,15 @@
+{
+	"onlyMetaData": {
+		"entryData": {
+			"metadata": {
+				"headers": ["name", "groupCode", "date"],
+				"values": [["EmptySoc", "3ºA", "1234"]]
+			}
+		},
+		"expected": {
+			"name": "EmptySoc",
+			"groupCode": "3ºA",
+			"date": "1234"
+		}
+	}
+}

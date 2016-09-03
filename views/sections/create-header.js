@@ -11,3 +11,7 @@ document.getElementById('next').addEventListener('click', function(event) {
 	const formData = Collector.collectFormData(form);
 	ipc.send('update-sociogram', formData);
 });
+
+document.getElementById('cancel').addEventListener('click', function(event) {
+	ipc.send('cancel-sociogram');
+});

@@ -5,6 +5,10 @@ const Composer = require('./composer.js');
 
 const mainWindow = document.getElementById('content-pane');
 
+ipc.on('display-welcome', function(event) {
+	displaySection('welcome');
+});
+
 ipc.on('display-sociogram-data', function(event, [path], sociogram) {
 	displaySection('display-sociogram');
 });

@@ -5,6 +5,7 @@ const dialog = require('electron').dialog;
 const fs = require('fs');
 const Reporter = require('../model/reporter.js');
 const Sociogram = require('../model/sociogram.js');
+const Updater = require('../model/updater.js');
 
 let currentSociogram;
 let savePath;
@@ -33,6 +34,16 @@ ipc.on('create-sociogram', function(event) {
 	event.sender.send('display-sociogram-creation');
 });
 
+ipc.on('update-sociogram', function(event, data) {
+	currentSociogram = Updater.updateSociogram(currentSociogram, data);
+	askSaveSociogram(currentSociogram);
+});
+
+ipc.on('cancel-sociogram', function(event) {
+	initValues();
+	event.sender.send('display-welcome');
+});
+
 ipc.on('query-sociogram-template', function(event) {
 	event.sender.send('response-sociogram-template',
 		Reporter.reportSociogramForm(currentSociogram.createTemplate()));
@@ -42,9 +53,6 @@ ipc.on('query-sociogram-state', function(event) {
 	event.sender.send('response-sociogram-state', Reporter.reportSociogram(currentSociogram));
 });
 
-ipc.on('update-sociogram', function(event, data) {
-	console.log(data);
-});
 
 function initValues() {
 	currentSociogram = new Sociogram({});
