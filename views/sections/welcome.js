@@ -2,13 +2,19 @@
 
 const ipc = require('electron').ipcRenderer;
 
-let openSociogramBtn = document.getElementById('open-sociogram');
-let newSociogramBtn = document.getElementById('create-sociogram');
+const welcome = {
+	run() {
+		let openSociogramBtn = document.getElementById('open-sociogram');
+		let newSociogramBtn = document.getElementById('create-sociogram');
 
-openSociogramBtn.addEventListener('click', function(event) {
-	ipc.send('open-sociogram-dialog');
-});
+		openSociogramBtn.addEventListener('click', function(event) {
+			ipc.send('open-sociogram-dialog');
+		});
 
-newSociogramBtn.addEventListener('click', function(event) {
-	ipc.send('create-sociogram');
-});
+		newSociogramBtn.addEventListener('click', function(event) {
+			ipc.send('create-sociogram');
+		});
+	}
+}
+
+module.exports = welcome;
