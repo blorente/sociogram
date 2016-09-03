@@ -60,61 +60,6 @@ const Composer = {
 
 	newLine() {
 		return '</br>';
-	},
-
-	createSociogramForm(template) {
-		let form = '<form>';
-		if (template) {
-			template.forEach(function(elem) {
-				form += Composer.createFormElement(elem);
-			});
-		} else {
-			form += '';
-		}
-		form += '<button type="submit" class="btn btn-form btn-primary" id="save-sociogram">Save</button></form>';
-		return form;
-	},
-
-	createFormElement(elem) {
-		let element = '';
-		if (elem.type === 'group') {
-			element += Composer.createFormGroup(elem);
-		} else if (elem.type === 'input') {
-			element += Composer.createFormInput(elem);
-		}
-		return element;
-	},
-
-	createFormGroup(template) {
-		let group = '<div class=\"form-group\">';
-		group += `<label><h3>${template.title}</h3></label>`;
-		if (template.elems && template.elems.length > 0) {
-			group += '<table><tbody>';
-			let labels = '<tr>';
-			let fields = '<tr>';
-			template.elems.forEach(function(elem) {
-				const created = Composer.createFormElement(elem);
-				labels += '<td>' + created.match(/<label>.*<\/label>/).toString() + '</td>';
-				fields += '<td>' + created.replace(/.*<label>.*<\/label>/, '') + '</td>';
-			});
-			labels += '</tr>';
-			fields += '</tr>';
-			group += labels;
-			group += fields;
-			if (template.extend === 'vertical') {
-				group += `<tr><td><button class=\"btn btn-form btn-primary\" id=\"extend-${template.title.toLowerCase()}\">Add</button></td></tr>`;
-			}
-			group += '</tbody></table>';
-		}
-		group += '</div>';
-		return group;
-	},
-
-	createFormInput(template) {
-		let input = '';
-		input += `<label>${template.title}</label>`;
-		input += `<input type=\"text\" class=\"form-control\" placeholder=\"${template.title}\">`;
-		return input;
 	}
 }
 
