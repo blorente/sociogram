@@ -1,0 +1,27 @@
+{
+	"singleField": {
+		"original": "<div class=\"form-group\"><label><h3>Questions</h3></label><table><tbody><tr><td><label>Question</label></td></tr><tr><td><input type=\"text\" class=\"form-control\" placeholder=\"Question\"></td></tr><tr><td><button type=\"submit\" class=\"btn btn-form btn-primary\" id=\"extend-questions\">Add</button></td></tr></tbody></table></div>",
+		"expected": "<div class=\"form-group\"><label><h3>Questions</h3></label><table><tbody><tr><td><label>Question</label></td></tr><tr><td><input type=\"text\" class=\"form-control\" placeholder=\"Question\"></td></tr><tr><td><input type=\"text\" class=\"form-control\" placeholder=\"Question\"></td></tr><tr><td><button type=\"submit\" class=\"btn btn-form btn-primary\" id=\"extend-questions\">Add</button></td></tr></tbody></table></div>"
+	},
+	"simpleTable": {
+		"original": {
+			"table": "<table><tbody><tr><td>One</td></tr><tr><td>Two</td></tr></tbody></table>",
+			"row": 0
+		},
+		"expected": "<table><tbody><tr><td>One</td></tr><tr><td>One</td></tr><tr><td>Two</td></tr></tbody></table>"
+	},
+	"secondElem": {
+		"original": {
+			"table": "<table><tbody><tr><td>One</td></tr><tr><td>Two</td></tr></tbody></table>",
+			"row": 1
+		},
+		"expected": "<table><tbody><tr><td>One</td></tr><tr><td>Two</td></tr><tr><td>Two</td></tr></tbody></table>"
+	},
+	"overflow": {
+		"original": {
+			"table": "<table><tbody><tr><td>One</td></tr><tr><td>Two</td></tr></tbody></table>",
+			"row": 4
+		},
+		"expected": "<table><tbody><tr><td>One</td></tr><tr><td>Two</td></tr></tbody></table>"
+	}
+}

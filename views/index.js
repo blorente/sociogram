@@ -10,10 +10,11 @@ ipc.on('display-sociogram-data', function(event, [path], sociogram) {
 });
 
 ipc.on('display-sociogram-creation', function(event) {
-	displaySection('create-header');	
+	displaySection('create-header');
 });
 
 function displaySection(name) {
+	console.log("Display Section: ", name);
 	mainWindow.innerHTML = '';
 	const link = document.querySelector(`link[id="${name}-section"]`);
 

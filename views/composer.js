@@ -102,7 +102,7 @@ const Composer = {
 			group += labels;
 			group += fields;
 			if (template.extend === 'vertical') {
-				group += `<tr><td><button type=\"submit\" class=\"btn btn-form btn-primary\" id=\"extend-${template.title.toLowerCase()}\">Add</button></td></tr>`;
+				group += `<tr><td><button class=\"btn btn-form btn-primary\" id=\"extend-${template.title.toLowerCase()}\">Add</button></td></tr>`;
 			}
 			group += '</tbody></table>';
 		}
