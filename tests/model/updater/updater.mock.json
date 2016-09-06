@@ -34,7 +34,7 @@
 	},
 	"variables": {
 		"entryData": {
-			"variables": {
+			"study": {
 				"headers": [ "variable", "values" ],
 				"values": [
 					["Gender", "M", "F"], ["Age", "12", "13", "14", "15"]

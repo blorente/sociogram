@@ -14,8 +14,8 @@ const Updater = {
 		if (newData.questionnaire) {
 			updated = Updater.updateQuestionnaire(updated, newData.questionnaire);
 		}
-		if (newData.variables) {
-			updated = Updater.updateVariables(updated, newData.variables);
+		if (newData.study) {
+			updated = Updater.updateVariables(updated, newData.study);
 		}
 		return updated;
 	},

@@ -65,7 +65,7 @@ describe('Sociogram Updater Tests', function() {
 			const emptySociogram = new Sociogram({});
 			const entryData = mockData.variables.entryData;
 			const expected = mockData.variables.expected;
-			const updated = Updater.updateVariables(emptySociogram, entryData.variables);
+			const updated = Updater.updateVariables(emptySociogram, entryData.study);
 			expect(updated).to.deep.equal(expected);
 		});
 	});

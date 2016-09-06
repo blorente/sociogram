@@ -1,12 +1,15 @@
 "use strict";
 
 const htmlUtils = {
-	makeFormsExtendable() {
+	makeFormsExtendable(callback) {
 		document.querySelectorAll(`button`).forEach(function(elem) {
 			if (elem.id.match(/extend-v-\w*/)) {
 				const table = document.getElementById(elem.id.replace(/extend-v-/, ''));
 				elem.addEventListener('click', function(event) {
 					htmlUtils.extendTableVertical(table);
+					if(callback) {
+						callback(table);
+					}
 				});
 			}
 		});
