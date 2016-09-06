@@ -48,5 +48,13 @@
 				"questions": []
 			}
 		}
+	},
+	"newQuestionnaire": {
+		"questionnaire": {
+			"questions": [
+				{"name": "Hello", "choices": 4},
+				{"name": "Bye", "choices": 6}
+			]
+		}
 	}
 }

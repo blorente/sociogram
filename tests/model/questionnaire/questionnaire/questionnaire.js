@@ -43,4 +43,16 @@ describe('Questionnaire Tests', function() {
 			expect(twoQuestionQuestionnaire.getNumQuestions()).to.equal(2);
 		});
 	});
+
+	describe('toJSON', function() {
+		const json = require('./questionnaire.mock.json').toJSON;
+
+		it('Returns a JSON.stringify-able object', function() {
+			const twoQuestionQuestionnaire = new Questionnaire({});
+			json.original.questions.forEach(function(elem) {
+				twoQuestionQuestionnaire.addQuestion(elem.name, elem.choices);
+			});
+			expect(JSON.stringify(twoQuestionQuestionnaire.toJSON())).to.equal(json.expected);
+		});
+	});
 });

@@ -30,16 +30,21 @@ class Sociogram {
 		return `${this.getName()}-${this.getGroupCode()}-${this.getDate()}`
 	}
 
-	equals(other) {
-		return this.getTitle() === other.getTitle();
+	updateQuestionnaire(newQuestionnaire) {
+		this.questionnaire = newQuestionnaire;
 	}
 
 	toJSON() {
-		return {
+		let json = {
 			name: this.name,
 			date: this.date,
 			groupCode: this.groupCode
+		};
+		json.template = {};
+		if (this.questionnaire) {
+			json.template.questionnaire = this.questionnaire.toJSON();
 		}
+		return json;
 	}
 
 	hasPopulation() {

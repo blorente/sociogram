@@ -22,6 +22,22 @@ describe('Sociogram Updater Tests', function() {
 			const updated = Updater.updateSociogram(emptySociogram, entryData);
 			expect(updated).to.deep.equal(expected);
 		});
+
+		it('If there is a questionnaire, it changes it', function() {
+			const emptySociogram = new Sociogram({});
+			const entryData = mockData.questions.entryData;
+			const expected = mockData.questions.expected;
+			const updated = Updater.updateSociogram(emptySociogram, entryData);
+			expect(updated).to.deep.equal(expected);
+		});
+
+		it('If there are variables, it changes them', function() {
+			const emptySociogram = new Sociogram({});
+			const entryData = mockData.variables.entryData;
+			const expected = mockData.variables.expected;
+			const updated = Updater.updateSociogram(emptySociogram, entryData);
+			expect(updated).to.deep.equal(expected);
+		});
 	});
 
 	describe('updateMetaData', function() {
@@ -30,6 +46,26 @@ describe('Sociogram Updater Tests', function() {
 			const entryData = mockData.onlyMetaData.entryData;
 			const expected = mockData.onlyMetaData.expected;
 			const updated = Updater.updateMetaData(emptySociogram, entryData.metadata);
+			expect(updated).to.deep.equal(expected);
+		});
+	});
+
+	describe('updateQuestionnaire', function() {
+		it('Can fill an empty sociogram\'s questionnaire template', function() {
+			const emptySociogram = new Sociogram({});
+			const entryData = mockData.questions.entryData;
+			const expected = mockData.questions.expected;
+			const updated = Updater.updateQuestionnaire(emptySociogram, entryData.questionnaire);
+			expect(updated).to.deep.equal(expected);
+		});
+	});
+
+	describe('updateVariables', function() {
+		it('Can fill an empty sociogram\'s variable list', function() {
+			const emptySociogram = new Sociogram({});
+			const entryData = mockData.variables.entryData;
+			const expected = mockData.variables.expected;
+			const updated = Updater.updateVariables(emptySociogram, entryData.variables);
 			expect(updated).to.deep.equal(expected);
 		});
 	});

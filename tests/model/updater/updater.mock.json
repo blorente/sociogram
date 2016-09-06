@@ -11,5 +11,46 @@
 			"groupCode": "3ºA",
 			"date": "1234"
 		}
+	},
+	"questions": {
+		"entryData": {
+			"questionnaire": {
+				"headers": [ "question", "choices" ],
+				"values": [
+					["How do you do?", "2"], ["How yu duin?", "3"]
+				]}
+		},
+		"expected": {
+			"name": "",
+			"groupCode": "",
+			"date": "",
+			"questionnaire": {
+				"questions": [
+					{"name": "How do you do?", "choices": 2},
+					{"name": "How yu duin?", "choices": 3}
+				]
+			}
+		}
+	},
+	"variables": {
+		"entryData": {
+			"variables": {
+				"headers": [ "variable", "values" ],
+				"values": [
+					["Gender", "M", "F"], ["Age", "12", "13", "14", "15"]
+				]}
+		},
+		"expected": {
+			"name": "",
+			"groupCode": "",
+			"date": "",
+			"population": {
+				"individuals": [],
+				"variables": [
+					{"name": "Gender", "values": ["M", "F"]},
+					{"name": "Age", "values": ["12", "13", "14", "15"]}
+				]
+			}
+		}
 	}
 }

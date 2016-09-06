@@ -14,6 +14,15 @@ class Questionnaire {
 	addQuestion(name, choices) {
 		this.questions.push(new Question({name, choices}));
 	}
+
+	toJSON() {
+		let json = {};
+		json.questions = [];
+		this.questions.forEach(function(elem) {
+			json.questions.push(elem);
+		});
+		return json;
+	}
 }
 
 module.exports = Questionnaire;

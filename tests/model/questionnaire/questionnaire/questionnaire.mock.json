@@ -3,5 +3,14 @@
 		"What do you do?",
 		"What are you doing?",
 		"How are you?"
-	]
+	],
+	"toJSON": {
+		"original": {
+			"questions": [
+				{"name": "One?", "choices": 8},
+				{"name": "The two?", "choices": 6}
+			]
+		},
+		"expected": "{\"questions\":[{\"name\":\"One?\",\"choices\":8},{\"name\":\"The two?\",\"choices\":6}]}"
+	}
 }

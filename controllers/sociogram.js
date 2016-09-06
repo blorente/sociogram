@@ -36,7 +36,6 @@ ipc.on('create-sociogram', function(event) {
 
 ipc.on('update-sociogram', function(event, data) {
 	currentSociogram = Updater.updateSociogram(currentSociogram, data);
-	askSaveSociogram(currentSociogram);
 });
 
 ipc.on('cancel-sociogram', function(event) {
