@@ -1,0 +1,33 @@
+<template>
+	<section id="create-population">
+		<form id="create-population-form">
+			<div class="form-group" id="population">
+				<label><h3>Population</h3></label>
+				<table>
+					<tbody>
+						<tr>
+							<td id="name"><label>Name</label></td>
+							<td id="id-header"><label>ID</label></td>
+							<td id="variables"><label>Variables</label></td>
+						</tr>
+						<tr>
+							<td><input type="text" class="form-control" placeholder="Name"></td>
+							<td><div id="id-field"></div></td>
+							<td id="variable-list"></td>
+						</tr>
+						<tr>
+							<td><button type="button" class="btn btn-large" name="Add" id="extend-v-individuals">Add</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="form-actions">
+				<button type="button" class="btn btn-form btn-default" id='cancel'>Cancel</button>
+				<button type="button" class="btn btn-form btn-primary" id='next'>Next</button>
+			</div>
+		</form>
+	</section>
+	<script type="text/javascript">
+		require('./sections/create-population.js').run();
+	</script>
+</template>

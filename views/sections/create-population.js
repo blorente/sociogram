@@ -5,7 +5,7 @@ const htmlUtils = require('./../htmlutils.js');
 const Collector = require('./../collector.js');
 const index = require('./../index.js');
 
-const createHeader = {
+const createPopulation = {
 	run() {
 		htmlUtils.makeFormsExtendable();
 
@@ -13,7 +13,7 @@ const createHeader = {
 			const form = document.getElementById('create-header-form');
 			const formData = Collector.collectFormData(form);
 			ipc.send('update-sociogram', formData);
-			index.displaySection('create-population');
+			index.displaySection('display-sociogram');
 		});
 
 		document.getElementById('cancel').addEventListener('click', function(event) {
@@ -22,4 +22,4 @@ const createHeader = {
 	}
 }
 
-module.exports = createHeader;
+module.exports = createPopulation;

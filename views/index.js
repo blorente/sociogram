@@ -28,5 +28,6 @@ function displaySection(name) {
 
 	mainWindow.appendChild(clone);
 }
+module.exports.displaySection = displaySection;
 
 displaySection('welcome');
