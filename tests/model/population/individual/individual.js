@@ -25,6 +25,12 @@ describe('Individual Tests', function() {
 			expect(constructedIndividual.getName()).to.equal(arbitraryParams.name);
 			expect(constructedIndividual.getID()).to.equal(arbitraryParams.id);
 		});
+
+		it('Accepts a list of variable names and values', function() {
+			const variableParams = require('./individual.mock.json').variables;
+			const variablesIndividual = new Individual(variableParams.original);
+			expect(variablesIndividual).to.deep.equal(variableParams.expected);
+		});
 	});
 
 	describe('getName', function() {

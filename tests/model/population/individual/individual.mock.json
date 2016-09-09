@@ -1,4 +1,20 @@
 {
 	"name": "Jake Weary",
-	"id": 2
+	"id": 2,
+	"variables": {
+		"original": {
+			"variables": [
+				{"name": "Var A", "value": "B"},
+				{"name": "Var B", "value": "C"}
+			]
+		},
+		"expected": {
+			"name": "",
+			"id": -1,
+			"variables": [
+				{"name": "Var A", "value": "B"},
+				{"name": "Var B", "value": "C"}
+			]
+		}
+	}
 }
