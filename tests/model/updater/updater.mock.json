@@ -52,5 +52,34 @@
 				]
 			}
 		}
+	},
+	"population": {
+		"entryData": {
+			"individuals": {
+				"headers": ["name", "id-header", "Var1", "Var2"],
+				"values": [
+					["Thomas", "A", "W"],
+					["Jefferson", "B", "Z"]
+				]
+			}
+		},
+		"expected": {
+			"name": "",
+			"groupCode": "",
+			"date": "",
+			"population": {
+				"individuals": [
+					{"name": "Thomas", "id": 0, "variables": {
+						"Var1": "A",
+						"Var2": "W"}
+					},
+					{"name": "Jefferson", "id": 1, "variables": {
+						"Var1": "B",
+						"Var2": "Z"}
+					}
+				],
+				"variables": []
+			}
+		}
 	}
 }

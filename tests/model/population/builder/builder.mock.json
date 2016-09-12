@@ -7,9 +7,9 @@
 	},
 	"onlyIndividuals": {
 		"individuals": [
-			{"name": "Jake Weary", "id": 0, "variables": []},
-			{"name": "Ada Lovelace", "id": 1, "variables": []},
-			{"name": "Jason Bourne", "id": 2, "variables": []}
+			{"name": "Jake Weary", "id": 0, "variables": {}},
+			{"name": "Ada Lovelace", "id": 1, "variables": {}},
+			{"name": "Jason Bourne", "id": 2, "variables": {}}
 		]
 	},
 	"fullPopulation": {
@@ -18,9 +18,9 @@
 			{"name": "Age", "values": ["12", "13", "14", "15"]}
 		],
 		"individuals": [
-			{"name": "Jake Weary", "id": 0, "variables": []},
-			{"name": "Ada Lovelace", "id": 1, "variables": []},
-			{"name": "Jason Bourne", "id": 2, "variables": []}
+			{"name": "Jake Weary", "id": 0, "variables": {}},
+			{"name": "Ada Lovelace", "id": 1, "variables": {}},
+			{"name": "Jason Bourne", "id": 2, "variables": {}}
 		]
 	},
 	"emptyTemplate": {

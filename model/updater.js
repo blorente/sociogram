@@ -4,6 +4,7 @@ const Sociogram = require('./sociogram.js');
 const Questionnaire = require('./questionnaire/questionnaire.js');
 const Population = require('./population/population.js');
 const PopulationBuilder = require('./population/builder.js');
+const Individual = require('./population/individual.js');
 
 const Updater = {
 	updateSociogram(original, newData) {
@@ -16,6 +17,9 @@ const Updater = {
 		}
 		if (newData.study) {
 			updated = Updater.updateVariables(updated, newData.study);
+		}
+		if (newData.individuals) {
+			updated = Updater.updateIndividuals(updated, newData.individuals);
 		}
 		return updated;
 	},
@@ -49,6 +53,26 @@ const Updater = {
 			newVars.push({name: newName, values: newValues});
 		});
 		newPopulation.variables = newVars;
+		let updated = original;
+		updated.population = newPopulation;
+		return updated;
+	},
+
+	updateIndividuals(original, newData) {
+		let newPopulation = PopulationBuilder.buildFromJSON(original.population);
+		let newIndividuals = [];
+		let varnames = newData.headers.slice(2);
+		newData.values.forEach(function(row, rowindex) {
+			const name = row[0];
+			let variables = [];
+			varnames.forEach(function(varname, varindex) {
+				const newVar = {name: varname, value: row[varindex + 1]};
+				variables.push(newVar);
+			});
+			const id = rowindex;
+			newIndividuals.push(new Individual({name, id, variables}));
+		});
+		newPopulation.individuals = newIndividuals;
 		let updated = original;
 		updated.population = newPopulation;
 		return updated;

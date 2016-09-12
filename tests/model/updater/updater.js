@@ -38,6 +38,14 @@ describe('Sociogram Updater Tests', function() {
 			const updated = Updater.updateSociogram(emptySociogram, entryData);
 			expect(updated).to.deep.equal(expected);
 		});
+
+		it('If there are individuals, it changes them', function() {
+			const emptySociogram = new Sociogram({});
+			const entryData = mockData.population.entryData;
+			const expected = mockData.population.expected;
+			const updated = Updater.updateSociogram(emptySociogram, entryData);
+			expect(updated).to.deep.equal(expected);
+		});
 	});
 
 	describe('updateMetaData', function() {
@@ -67,6 +75,15 @@ describe('Sociogram Updater Tests', function() {
 			const expected = mockData.variables.expected;
 			const updated = Updater.updateVariables(emptySociogram, entryData.study);
 			expect(updated).to.deep.equal(expected);
+		});
+	});
+
+	describe('updateIndividuals', function() {
+		it('Can fill an empty sociogram\'s population list', function() {
+			const emptySociogram = new Sociogram({});
+			const entryData = mockData.population.entryData;
+			const expected = mockData.population.expected;
+			const updated = Updater.updateIndividuals(emptySociogram, entryData.individuals);
 		});
 	});
 });

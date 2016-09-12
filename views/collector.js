@@ -43,6 +43,10 @@ const Collector = {
 				const cell = row.cells[j];
 				if (cell.firstChild.tagName === 'INPUT') {
 					rowData.push(cell.firstChild.value);
+				} else if (cell.firstChild.tagName === 'SELECT') {
+					let select = cell.firstChild;
+					const option = select.options[select.selectedIndex];
+					rowData.push(option.text);
 				}
 			}
 			tableValues.push(rowData);

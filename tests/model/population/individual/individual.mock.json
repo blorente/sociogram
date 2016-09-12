@@ -11,10 +11,10 @@
 		"expected": {
 			"name": "",
 			"id": -1,
-			"variables": [
-				{"name": "Var A", "value": "B"},
-				{"name": "Var B", "value": "C"}
-			]
+			"variables": {
+				"Var A": "B",
+				"Var B": "C"
+			}
 		}
 	}
 }

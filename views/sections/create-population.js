@@ -11,7 +11,7 @@ const createPopulation = {
 		this.createVariableFields();
 
 		document.getElementById('next').addEventListener('click', function(event) {
-			const form = document.getElementById('create-header-form');
+			const form = document.getElementById('create-population-form');
 			const formData = Collector.collectFormData(form);
 			ipc.send('update-sociogram', formData);
 			index.displaySection('display-sociogram');
@@ -29,12 +29,13 @@ const createPopulation = {
 	},
 
 	createVariableFields() {
-		let populationtable = document.getElementById('individuals');
+		let populationtable = document.getElementById('individuals-table');
 		ipc.send('query-sociogram-variables');
 		ipc.on('response-sociogram-variables', function(event, variables) {
 			variables.forEach(function(variable) {
 				if (variable.name) {
 					const newTitle = populationtable.rows[0].insertCell(-1);
+					newTitle.id = variable.name;
 					newTitle.innerHTML = '<label>' + variable.name + '</label>';
 					const newInput = populationtable.rows[1].insertCell(-1);
 					let newChoice = '<select class="form-control">';
